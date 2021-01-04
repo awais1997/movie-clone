@@ -1,0 +1,13 @@
+.PersonDetail-card {
+  background-color: #032541;
+  align-items: center;
+  display: flex;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  padding: 5%;
+}
+
+.PersonDetail-content {
+  color: white;
+  padding-left: 5%;
+}

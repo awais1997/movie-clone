@@ -1,0 +1,12 @@
+.Navbar-container {
+  padding-top: 1%;
+  display: flex;
+}
+.Navbar-logo {
+  width: 80px;
+}
+
+.Navbar-tabs {
+  display: flex;
+  justify-content: space-between;
+}

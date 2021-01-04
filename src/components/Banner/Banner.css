@@ -1,0 +1,7 @@
+.container {
+  background-image: url("banner.jpg");
+  padding: 50px;
+  background-size: auto;
+  color: #ffff;
+  font-size: 1.5em;
+}
