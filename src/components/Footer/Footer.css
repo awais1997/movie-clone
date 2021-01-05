@@ -1,5 +1,6 @@
 .Footer-container {
   background-color: #032541;
+  align-items: center;
   height: 250px;
   display: flex;
   justify-content: space-around;
@@ -7,8 +8,12 @@
 .Footer-logo {
   width: 15%;
 }
+.Footer-tabs {
+  display: flex;
+  flex-grow: 0.2;
+  justify-content: space-around;
+}
 .Footer-links {
   color: white;
   text-decoration: none;
-  padding-top: 10%;
 }

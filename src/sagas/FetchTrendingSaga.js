@@ -12,9 +12,8 @@ const apiCallFunc = async () => {
 };
 function* workerFetchTrending() {
   try {
-    const apiCall = yield call(apiCallFunc);
-    const payload = apiCall;
-    yield put(FetchTrendingSuccess(payload));
+    const response = yield call(apiCallFunc);
+    yield put(FetchTrendingSuccess(response));
   } catch (error) {
     yield put(FetchTrendingFail(error.message));
   }

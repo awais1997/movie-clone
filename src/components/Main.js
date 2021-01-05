@@ -10,6 +10,7 @@ import Footer from "./Footer";
 import MovieDetail from "./MovieDetail";
 import TVshowDetail from "./TVshowDetail";
 import PersonDetail from "./PersonDetail";
+import Search from "./Search";
 
 const Main = () => {
   return (
@@ -40,6 +41,9 @@ const Main = () => {
           </Route>
           <Route path="/person/detail/:Id">
             <PersonDetail />
+          </Route>
+          <Route path="/search">
+            <Search />
           </Route>
         </Switch>
         <Footer />

@@ -1,7 +1,6 @@
 import TVshows from "./TVshows";
 import { connect } from "react-redux";
 import { FetchTvshowsRequest } from "../../actions/FetchTvshows";
-
 import { FetchTVshowDetailRequest } from "../../actions/FetchTVshowDetail";
 const mapStateToProps = (state) => {
   return {
@@ -10,11 +9,8 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    FetchTvshowsRequest: () => dispatch(FetchTvshowsRequest()),
-
-    FetchTVshowDetailRequest: (id) => dispatch(FetchTVshowDetailRequest(id)),
-  };
+const mapDispatchToProps = {
+  FetchTvshowsRequest,
+  FetchTVshowDetailRequest,
 };
 export default connect(mapStateToProps, mapDispatchToProps)(TVshows);

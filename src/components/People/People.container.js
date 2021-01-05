@@ -10,11 +10,9 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    FetchPeopleRequest: () => dispatch(FetchPeopleRequest()),
-    FetchPersonDetailRequest: (id) => dispatch(FetchPersonDetailRequest(id)),
-  };
+const mapDispatchToProps = {
+  FetchPeopleRequest,
+  FetchPersonDetailRequest,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(People);

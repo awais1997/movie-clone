@@ -12,9 +12,8 @@ const apiCallFunc = async () => {
 };
 function* workerFetchUpcoming() {
   try {
-    const apiCall = yield call(apiCallFunc);
-    const payload = apiCall;
-    yield put(FetchUpcomingSuccess(payload));
+    const response = yield call(apiCallFunc);
+    yield put(FetchUpcomingSuccess(response));
   } catch (error) {
     yield put(FetchUpcomingFail(error.message));
   }

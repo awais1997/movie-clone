@@ -7,6 +7,9 @@ import rootFetchPeopleSaga from "../sagas/FetchPeopleSaga";
 import rootFetchMovieDetailSaga from "../sagas/FetchMovieDetailSaga";
 import rootFetchTVshowDetailSaga from "../sagas/FetchTVshowDetailSaga";
 import rootFetchPersonDetailSaga from "../sagas/FetchPersonDetailSaga";
+import rootFetchMovieReviewSaga from "../sagas/FetchMovieReviewSaga";
+import rootFetchTVshowReviewSaga from "../sagas/FetchTVshowReviewSaga";
+import rootFetchSearchSaga from "../sagas/FetchSearchSaga";
 
 export default function* RootSaga() {
   yield all([
@@ -18,5 +21,8 @@ export default function* RootSaga() {
     rootFetchMovieDetailSaga(),
     rootFetchTVshowDetailSaga(),
     rootFetchPersonDetailSaga(),
+    rootFetchMovieReviewSaga(),
+    rootFetchTVshowReviewSaga(),
+    rootFetchSearchSaga(),
   ]);
 }

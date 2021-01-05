@@ -1,36 +1,89 @@
-import React from 'react'
+import React from "react";
 import { Card } from "@material-ui/core";
-import './MovieDetail.css'
+import "./MovieDetail.css";
+import StarHalfOutlinedIcon from "@material-ui/icons/StarHalfOutlined";
+import LanguageOutlinedIcon from "@material-ui/icons/LanguageOutlined";
+import TranslateOutlinedIcon from "@material-ui/icons/TranslateOutlined";
 
-const MovieDetail = ({movieDetail}) => {
+const MovieDetail = ({ movieDetail, FetchMovieReviewRequest, movieReview }) => {
+  // useEffect(() => {
+  //   console.log("Movie id for review:", movieDetail.id);
+  //   //movieDetail.length && FetchMovieReviewRequest(movieDetail.id);
+  // }, [movieDetail]);
 
+  const getReviewFunc = (id) => {
+    FetchMovieReviewRequest(id);
+  };
   return (
     <div className="MovieDetail-container">
-      
-       {console.log("Movie Detail",movieDetail)}
-       <Card className="MovieDetail-card"  style={{backgroundColor: "#032541"}}>
-         <div className="MovieDetail-image" >
-            <img src={`https://image.tmdb.org/t/p/w220_and_h330_face${movieDetail.poster_path}`} alt={movieDetail.title}/>
-         </div>
-         <div class="MovieDetail-content">
-           <h1>{movieDetail.title}</h1>
-           {/* {movieDetail.genres.forEach((value)=>{
-             return (<p>{value.name}</p>)
-           })
-            
-           } */}
-           <i>{movieDetail.tagline}</i>
-            <h2>OverView</h2> <p>{movieDetail.overview}</p>
-           <h2>Rating</h2>{movieDetail.vote_average}
-           <h2>Relase date</h2>{movieDetail.release_date}
-           <h5>Popularity</h5>{movieDetail.popularity}
-           <h5>Language</h5>{movieDetail.original_language =="en"?  "English":"..."}
+      {console.log("Movie Detail", movieDetail)}
+      {console.log("Movie Review", movieReview)}
 
-         </div>
-
-       </Card>
+      <Card className="MovieDetail-card" style={{ backgroundColor: "#032541" }}>
+        <div className="MovieDetail-image">
+          <img
+            src={`https://image.tmdb.org/t/p/w220_and_h330_face${movieDetail.poster_path}`}
+            alt={movieDetail.title}
+          />
+        </div>
+        <div className="MovieDetail-content">
+          <h1>{movieDetail.title}</h1>
+          <i>{movieDetail.tagline}</i>
+          <h2>OverView</h2> <p>{movieDetail.overview}</p>
+          <table>
+            <tr>
+              <th>
+                <StarHalfOutlinedIcon />
+                Rating
+              </th>
+              <th>Relase date</th>
+              <th>
+                <LanguageOutlinedIcon />
+                Popularity
+              </th>
+              <th>
+                <TranslateOutlinedIcon />
+                Language
+              </th>
+            </tr>
+            <tr>
+              <td>{movieDetail.vote_average}</td>
+              <td>{movieDetail.release_date}</td>
+              <td>{movieDetail.release_date}</td>
+              <td>
+                {movieDetail.original_language === "en" ? "English" : "..."}
+              </td>
+            </tr>
+          </table>
+        </div>
+      </Card>
+      <button
+        onClick={() => {
+          getReviewFunc(movieDetail.id);
+        }}
+      >
+        Get Review
+      </button>
+      <table>
+        <tr>
+          <th>Author</th>
+          <th>Content</th>
+          <th>Created At</th>
+        </tr>
+        {movieReview?.results?.map((review, index) => {
+          return (
+            <tr>
+              <td>{review.author}</td>
+              <td>
+                <p>{review.content}</p>
+              </td>
+              <td>{review.created_at}</td>
+            </tr>
+          );
+        })}
+      </table>
     </div>
-  )
-}
+  );
+};
 
-export default MovieDetail
+export default MovieDetail;

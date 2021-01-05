@@ -9,6 +9,9 @@ const initialState = {
   movieDetail: [],
   tvshowDetail: [],
   personDetail: [],
+  movieReview: [],
+  tvshowReview: [],
+  searchResult: [],
 };
 
 const reducer = (state = initialState, action) => {
@@ -32,7 +35,7 @@ const reducer = (state = initialState, action) => {
       };
     }
 
-    //Fretch Upcoming
+    //Fretch UpcomingMOVIEREVIEW
 
     case "FETCH_UPCOMING_REQUEST": {
       return {
@@ -170,6 +173,63 @@ const reducer = (state = initialState, action) => {
       };
     }
     case "FETCH_PERSONDETAIL_FAIL": {
+      return {
+        ...state,
+        error: action.payload,
+      };
+    }
+    // Fetch movie Review
+    case "FETCH_MOVIEREVIEW_REQUEST": {
+      return {
+        ...state,
+      };
+    }
+    case "FETCH_MOVIEREVIEW_SUCCESS": {
+      return {
+        ...state,
+        isloading: true,
+        movieReview: action.payload,
+      };
+    }
+    case "FETCH_MOVIEREVIEW_FAIL": {
+      return {
+        ...state,
+        error: action.payload,
+      };
+    }
+    //Fetch movie Tv show review
+    case "FETCH_TVSHOWREVIEW_REQUEST": {
+      return {
+        ...state,
+      };
+    }
+    case "FETCH_TVSHOWREVIEW_SUCCESS": {
+      return {
+        ...state,
+        isloading: true,
+        tvshowReview: action.payload,
+      };
+    }
+    case "FETCH_TVSHOWREVIEW_FAIL": {
+      return {
+        ...state,
+        error: action.payload,
+      };
+    }
+    //Fetch search result
+    case "FETCH_SEARCH_REQUEST": {
+      return {
+        ...state,
+      };
+    }
+    case "FETCH_SEARCH_SUCCESS": {
+      return {
+        ...state,
+        isloading: true,
+        searchResult: action.payload,
+      };
+    }
+    case "FETCH_SEARCH_FAIL": {
       return {
         ...state,
         error: action.payload,

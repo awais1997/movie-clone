@@ -12,8 +12,7 @@ const apiCallFunc = async (payload) => {
 };
 function* workerFetchTVshowDetail({ payload }) {
   try {
-    const apiCall = yield call(apiCallFunc, payload);
-    const response = apiCall;
+    const response = yield call(apiCallFunc, payload);
     yield put(FetchTVshowDetailSuccess(response));
   } catch (error) {
     yield put(FetchTVshowDetailFail(error.message));

@@ -1,0 +1,10 @@
+.Search-conatiner {
+  display: flex;
+  flex-direction: column;
+  padding: 80px;
+  align-items: center;
+}
+
+.Search-input {
+  width: 50ch;
+}

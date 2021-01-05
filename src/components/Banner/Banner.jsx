@@ -1,5 +1,5 @@
-import React from 'react'
-import './Banner.css'
+import React from "react";
+import "./Banner.css";
 
 const Banner = () => {
   return (
@@ -7,7 +7,7 @@ const Banner = () => {
       <h1>Welcome</h1>
       <h2>Millions of movies, TV shows and people to discover. Explore now.</h2>
     </div>
-  )
-}
+  );
+};
 
-export default Banner
+export default Banner;

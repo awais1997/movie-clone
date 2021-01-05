@@ -9,9 +9,8 @@ const apiCallFunc = async () => {
 };
 function* workerFetchTvshows() {
   try {
-    const apiCall = yield call(apiCallFunc);
-    const payload = apiCall;
-    yield put(FetchTvshowsSuccess(payload));
+    const response = yield call(apiCallFunc);
+    yield put(FetchTvshowsSuccess(response));
   } catch (error) {
     yield put(FetchTvshowsFail(error.message));
   }

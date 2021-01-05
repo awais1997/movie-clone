@@ -6,13 +6,23 @@ import "./Footer.css";
 const Footer = () => {
   return (
     <div className="Footer-container">
-          <img className="Footer-logo" src={logo} alt="logo" />
-    
-          <Link className="Footer-links">Upcoming</Link>
-          <Link className="Footer-links">TV shows</Link>
-          <Link className="Footer-links">Trending</Link>
-          <Link className="Footer-links">People</Link>
-
+      <div className="Footer-logo">
+        <img src={logo} alt="logo" />
+      </div>
+      <div className="Footer-tabs">
+        <Link to="/upcoming" className="Footer-links">
+          Upcoming
+        </Link>
+        <Link to="/tvshows" className="Footer-links">
+          TV shows
+        </Link>
+        <Link to="/trending" className="Footer-links">
+          Trending
+        </Link>
+        <Link to="/people" className="Footer-links">
+          People
+        </Link>
+      </div>
     </div>
   );
 };
