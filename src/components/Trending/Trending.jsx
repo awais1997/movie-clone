@@ -4,16 +4,17 @@ import Movies from "../Movies";
 import { Grid } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   root: {
     flexGrow: 1,
   },
 }));
 
-const Trending = ({ isloading, trendingList, FetchTrendingRequest }) => {
+const Trending = (props) => {
+  const { isloading, trendingList, fetchTrendingRequest } = props;
   const classes = useStyles();
   useEffect(() => {
-    FetchTrendingRequest();
+    fetchTrendingRequest();
   }, []);
 
   return (
@@ -24,7 +25,7 @@ const Trending = ({ isloading, trendingList, FetchTrendingRequest }) => {
         <h1>loading..</h1>
       ) : (
         <div className={classes.root}>
-          <Grid container item xs={12} spacing={4}>
+          <Grid container item xs={16} spacing={4}>
             {trendingList.results?.map((movie, index) => {
               return <Movies key={index} movie={movie} />;
             })}

@@ -1,15 +1,15 @@
 import Upcoming from "./Upcoming";
 import { connect } from "react-redux";
-import { FetchUpcomingRequest } from "../../actions/FetchUpcoming";
+import { fetchUpcomingRequest } from "../../store/actions/fetchUpcoming";
 
-const mapStateToProps = (state) => {
+const mapStateToProps = ({ moviesReducer }) => {
   return {
-    isloading: state.isloading,
-    upcomingList: state.upcomingList,
+    isloading: moviesReducer.get("isloading"),
+    upcomingList: moviesReducer.get("upcomingList"),
   };
 };
 
 const mapDispatchToProps = {
-  FetchUpcomingRequest,
+  fetchUpcomingRequest,
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Upcoming);

@@ -1,9 +1,9 @@
 import Movies from "./Movies";
 import { connect } from "react-redux";
-import { FetchMovieDetailRequest } from "../../actions/FetchMovieDetail";
+import { fetchMovieDetailRequest } from "../../store/actions/fetchMovieDetail";
 
 const mapDispatchToProps = {
-  FetchMovieDetailRequest,
+  fetchMovieDetailRequest,
 };
 
 export default connect(null, mapDispatchToProps)(Movies);

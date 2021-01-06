@@ -1,17 +1,17 @@
-export const FetchTVshowDetailRequest = (id) => {
+export const fetchTVshowDetailRequest = (id) => {
   return {
     type: "FETCH_TVSHOWDETAIL_REQUEST",
     payload: id,
   };
 };
 
-export const FetchTVshowDetailSuccess = (tvshow) => {
+export const fetchTVshowDetailSuccess = (tvshow) => {
   return {
     type: "FETCH_TVSHOWDETAIL_SUCCESS",
     payload: tvshow,
   };
 };
-export const FetchTVshowDetailFail = (err) => {
+export const fetchTVshowDetailFail = (err) => {
   return {
     type: "FETCH_TVSHOWDETAIL_FAIL",
     payload: err,

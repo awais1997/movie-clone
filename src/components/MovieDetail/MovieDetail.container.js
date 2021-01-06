@@ -1,17 +1,17 @@
 import MovieDetail from "./MovieDetail";
 import { connect } from "react-redux";
-import { FetchMovieReviewRequest } from "../../actions/FetchMovieReview";
+import { fetchMovieReviewRequest } from "../../store/actions/fetchMovieReview";
 
-const mapStateToProps = (state) => {
+const mapStateToProps = ({ moviesReducer }) => {
   return {
-    isloading: state.isloading,
-    movieDetail: state.movieDetail,
-    movieReview: state.movieReview,
+    isloading: moviesReducer.get("isloading"),
+    movieDetail: moviesReducer.get("movieDetail"),
+    movieReview: moviesReducer.get("movieReview"),
   };
 };
 
 const mapDispatchToProps = {
-  FetchMovieReviewRequest,
+  fetchMovieReviewRequest,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(MovieDetail);

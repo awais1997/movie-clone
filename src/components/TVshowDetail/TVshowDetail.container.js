@@ -1,15 +1,15 @@
 import TVshowDetail from "./TVshowDetail";
 import { connect } from "react-redux";
-import { FetchTVshowReviewRequest } from "../../actions/FetchTVshowReview";
+import { fetchTVshowReviewRequest } from "../../store/actions/fetchTVshowReview";
 
-const mapStateToProps = (state) => {
+const mapStateToProps = ({ tvshowsReducer }) => {
   return {
-    isloading: state.isloading,
-    tvshowDetail: state.tvshowDetail,
-    tvshowReview: state.tvshowReview,
+    isloading: tvshowsReducer.get("isloading"),
+    tvshowDetail: tvshowsReducer.get("tvshowDetail"),
+    tvshowReview: tvshowsReducer.get("tvshowReview"),
   };
 };
 const mapDispatchToProps = {
-  FetchTVshowReviewRequest,
+  fetchTVshowReviewRequest,
 };
 export default connect(mapStateToProps, mapDispatchToProps)(TVshowDetail);

@@ -10,10 +10,11 @@ const useStyles = makeStyles(() => ({
     flexGrow: 1,
   },
 }));
-const Home = ({ FetchMoviesRequest, isloading, moviesList }) => {
+const Home = (props) => {
+  const { fetchMoviesRequest, isloading, moviesList } = props;
   const classes = useStyles();
   useEffect(() => {
-    FetchMoviesRequest();
+    fetchMoviesRequest();
     console.log("use effect call");
   }, []);
 

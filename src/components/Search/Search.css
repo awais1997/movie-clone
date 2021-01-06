@@ -6,5 +6,6 @@
 }
 
 .Search-input {
-  width: 50ch;
+  height: 50px;
+  width: 100%;
 }

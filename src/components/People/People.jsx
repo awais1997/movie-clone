@@ -10,6 +10,7 @@ import {
 import { makeStyles } from "@material-ui/core/styles";
 import "./People.css";
 import { useHistory } from "react-router-dom";
+import ProfilePlaceHolder from "../../assets/ProfilePlaceHolder.jpg";
 
 const useStyles = makeStyles({
   card: {
@@ -35,21 +36,23 @@ const useStyles = makeStyles({
   },
 });
 
-const People = ({
-  isloading,
-  peopleList,
-  FetchPeopleRequest,
-  FetchPersonDetailRequest,
-}) => {
+const People = (props) => {
+  const {
+    isloading,
+    peopleList,
+    fetchPeopleRequest,
+    fetchPersonDetailRequest,
+  } = props;
+
   const history = useHistory();
   useEffect(() => {
-    FetchPeopleRequest();
+    fetchPeopleRequest();
   }, []);
 
   const getPersonDetailFunc = (id) => {
     console.log(id);
     history.push(`person/detail/${id}`);
-    FetchPersonDetailRequest(id);
+    fetchPersonDetailRequest(id);
   };
   const classes = useStyles();
 
@@ -61,45 +64,8 @@ const People = ({
         {isloading !== true ? (
           <h1>loading..</h1>
         ) : (
-          //   <div className="PeopleList-shows-container">
-
-          //   {
-          //     peopleList.results?.map((person,index)=>{
-          //       return (
-          //       <Card className={classes.card} key={index} onClick={()=>{getPersonDetailFunc(person.id)}}>
-          //         <CardActionArea>
-          //         <CardMedia
-          //           className={classes.media}
-          //           image={`https://image.tmdb.org/t/p/w220_and_h330_face${person.profile_path}`}
-          //           title= {person.name }
-          //         />
-          //           <Typography gutterBottom className={classes.rating}>
-          //             {person.popularity}
-          //           </Typography>
-          //         <CardContent className={classes.content}>
-
-          //           <Typography gutterBottom variant="h7"component="h3" >
-          //             {person.name}
-          //           </Typography>
-          //           {person.known_for.map((value,index)=>{
-          //             return(
-          //                <Typography gutterBottom variant="h7" component="h5">
-          //             {value.original_title  !== null ? value.original_title : value.name !==null ? value.name : "..."}
-          //             </Typography>
-          //          )
-          //           })}
-
-          //         </CardContent>
-
-          //       </CardActionArea>
-
-          //     </Card>)
-          //     })
-          //   }
-
-          // </div>
           <div className={classes.root}>
-            <Grid container item xs={12} spacing={4}>
+            <Grid container item xs={16} spacing={4}>
               {peopleList.results?.map((person, index) => {
                 return (
                   <Grid item xs={12} md={6} lg={3} key={index}>
@@ -113,27 +79,33 @@ const People = ({
                       <CardActionArea>
                         <CardMedia
                           className={classes.media}
-                          image={`https://image.tmdb.org/t/p/w220_and_h330_face${person.profile_path}`}
+                          image={
+                            person.profile_path !== null
+                              ? `https://image.tmdb.org/t/p/w220_and_h330_face${person.profile_path}`
+                              : { ProfilePlaceHolder }
+                          }
                           title={person.name}
                         />
                         <Typography gutterBottom className={classes.rating}>
                           {person.popularity}
                         </Typography>
                         <CardContent className={classes.content}>
-                          <Typography gutterBottom variant="h7" component="h3">
+                          <Typography gutterBottom variant="h6">
                             {person.name}
                           </Typography>
                           {person.known_for.map((value, index) => {
                             return (
                               <Typography
                                 gutterBottom
-                                variant="h7"
-                                component="h5"
+                                variant="caption"
+                                key={index}
                               >
                                 {value.original_title !== null
                                   ? value.original_title
                                   : value.name !== null
                                   ? value.name
+                                  : value.original_name !== null
+                                  ? value.original_name
                                   : "..."}
                               </Typography>
                             );

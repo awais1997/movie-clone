@@ -1,16 +1,16 @@
-export const FetchPeopleRequest = () => {
+export const fetchPeopleRequest = () => {
   return {
     type: "FETCH_PEOPLE_REQUEST",
   };
 };
 
-export const FetchPeopleSuccess = (people) => {
+export const fetchPeopleSuccess = (people) => {
   return {
     type: "FETCH_PEOPLE_SUCCESS",
     payload: people,
   };
 };
-export const FetchPeopleFail = (err) => {
+export const fetchPeopleFail = (err) => {
   return {
     type: "FETCH_PEOPLE_FAIL",
     payload: err,

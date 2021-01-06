@@ -35,11 +35,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Movies = ({ movie, FetchMovieDetailRequest }) => {
+const Movies = (props) => {
+  const { movie, fetchMovieDetailRequest } = props;
   const history = useHistory();
   const getDetailFunc = (id) => {
     history.push(`movie/detail/${id}`);
-    FetchMovieDetailRequest(id);
+    fetchMovieDetailRequest(id);
   };
   const classes = useStyles();
   return (
@@ -60,14 +61,16 @@ const Movies = ({ movie, FetchMovieDetailRequest }) => {
             {movie.vote_average}
           </Typography>
           <CardContent className={classes.content}>
-            <Typography gutterBottom variant="h7" component="h3">
+            <Typography variant="h6" gutterBottom>
               {movie.title !== null
                 ? movie.title
                 : movie.original_title !== null
                 ? movie.original_title
+                : movie.original_name !== null
+                ? movie.original_name
                 : "..."}
             </Typography>
-            <Typography gutterBottom variant="h7" component="h5">
+            <Typography variant="caption" gutterBottom>
               {movie.release_date}
             </Typography>
           </CardContent>

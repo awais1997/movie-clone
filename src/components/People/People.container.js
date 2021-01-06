@@ -1,18 +1,18 @@
 import People from "./People";
 import { connect } from "react-redux";
-import { FetchPeopleRequest } from "../../actions/FetchPeople";
-import { FetchPersonDetailRequest } from "../../actions/FetchPersonDetail";
+import { fetchPeopleRequest } from "../../store/actions/fetchPeople";
+import { fetchPersonDetailRequest } from "../../store/actions/fetchPersonDetail";
 
-const mapStateToProps = (state) => {
+const mapStateToProps = ({ peopleReducer }) => {
   return {
-    isloading: state.isloading,
-    peopleList: state.peopleList,
+    isloading: peopleReducer.get("isloading"),
+    peopleList: peopleReducer.get("peopleList"),
   };
 };
 
 const mapDispatchToProps = {
-  FetchPeopleRequest,
-  FetchPersonDetailRequest,
+  fetchPeopleRequest,
+  fetchPersonDetailRequest,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(People);

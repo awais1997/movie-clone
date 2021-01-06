@@ -2,7 +2,9 @@ import React from "react";
 import { Card } from "@material-ui/core";
 import "./PersonDetail.css";
 
-const PersonDetail = ({ personDetail }) => {
+const PersonDetail = (props) => {
+  const { personDetail } = props;
+
   return (
     <div className="PersonDetail-container">
       {console.log("Person Detail", personDetail)}
@@ -19,13 +21,19 @@ const PersonDetail = ({ personDetail }) => {
         <div class="PersonDetail-content">
           <h1>{personDetail.name}</h1>
           <i>{personDetail.known_for_department}</i>
-          <h4>Gender</h4>
-          {personDetail.gender !== 1 ? "Male" : "Female"}
           <h2>Biography</h2> <p>{personDetail.biography}</p>
-          <h5>Popularity</h5>
-          {personDetail.popularity}
-          <h5>Place of Birth</h5>
-          {personDetail.place_of_birth}
+          <table>
+            <tr>
+              <th>Popularity</th>
+              <th>Gender</th>
+              <th>Place of Birth</th>
+            </tr>
+            <tr>
+              <td> {personDetail.popularity}</td>
+              <td> {personDetail.gender !== 1 ? "Male" : "Female"}</td>
+              <td>{personDetail.place_of_birth}</td>
+            </tr>
+          </table>
         </div>
       </Card>
     </div>

@@ -5,14 +5,15 @@ import StarHalfOutlinedIcon from "@material-ui/icons/StarHalfOutlined";
 import LanguageOutlinedIcon from "@material-ui/icons/LanguageOutlined";
 import TranslateOutlinedIcon from "@material-ui/icons/TranslateOutlined";
 
-const MovieDetail = ({ movieDetail, FetchMovieReviewRequest, movieReview }) => {
+const MovieDetail = (props) => {
+  const { movieDetail, fetchMovieReviewRequest, movieReview } = props;
   // useEffect(() => {
   //   console.log("Movie id for review:", movieDetail.id);
   //   //movieDetail.length && FetchMovieReviewRequest(movieDetail.id);
   // }, [movieDetail]);
 
   const getReviewFunc = (id) => {
-    FetchMovieReviewRequest(id);
+    fetchMovieReviewRequest(id);
   };
   return (
     <div className="MovieDetail-container">
@@ -72,7 +73,7 @@ const MovieDetail = ({ movieDetail, FetchMovieReviewRequest, movieReview }) => {
         </tr>
         {movieReview?.results?.map((review, index) => {
           return (
-            <tr>
+            <tr key={index}>
               <td>{review.author}</td>
               <td>
                 <p>{review.content}</p>

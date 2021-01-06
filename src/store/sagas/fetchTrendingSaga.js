@@ -1,9 +1,9 @@
-import { URL_TRENDING, KEY } from "./api/api";
+import { URL_TRENDING, KEY } from "../services";
 import { put, fork, takeEvery, call, all } from "redux-saga/effects";
 import {
-  FetchTrendingSuccess,
-  FetchTrendingFail,
-} from "../actions/FetchTrending";
+  fetchTrendingSuccess,
+  fetchTrendingFail,
+} from "../actions/fetchTrending";
 
 const apiCallFunc = async () => {
   const res = await fetch(`${URL_TRENDING}?api_key=${KEY}`);
@@ -13,9 +13,9 @@ const apiCallFunc = async () => {
 function* workerFetchTrending() {
   try {
     const response = yield call(apiCallFunc);
-    yield put(FetchTrendingSuccess(response));
+    yield put(fetchTrendingSuccess(response));
   } catch (error) {
-    yield put(FetchTrendingFail(error.message));
+    yield put(fetchTrendingFail(error.message));
   }
 }
 function* watcherFetchTrending() {

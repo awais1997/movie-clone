@@ -5,13 +5,11 @@ import StarHalfOutlinedIcon from "@material-ui/icons/StarHalfOutlined";
 import LanguageOutlinedIcon from "@material-ui/icons/LanguageOutlined";
 import TranslateOutlinedIcon from "@material-ui/icons/TranslateOutlined";
 
-const TVshowDetail = ({
-  tvshowDetail,
-  tvshowReview,
-  FetchTVshowReviewRequest,
-}) => {
+const TVshowDetail = (props) => {
+  const { tvshowDetail, tvshowReview, fetchTVshowReviewRequest } = props;
+
   const getReviewFunc = (id) => {
-    FetchTVshowReviewRequest(id);
+    fetchTVshowReviewRequest(id);
   };
   return (
     <div className="TVshowDetail-container">

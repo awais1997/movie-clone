@@ -5,19 +5,19 @@ import Main from "./components/Main.js";
 import reportWebVitals from "./reportWebVitals";
 import { createStore, applyMiddleware, compose } from "redux";
 import { Provider } from "react-redux";
-import reducer from "./reducers/";
+import allReducers from "./store/reducers";
 import createSagaMiddleware from "redux-saga";
-import RootSaga from "./RootSaga/RootSaga";
+import rootSaga from "./store/rootSaga";
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const sagaMiddleware = createSagaMiddleware();
 
 const store = createStore(
-  reducer,
+  allReducers,
   composeEnhancers(applyMiddleware(sagaMiddleware))
 );
-sagaMiddleware.run(RootSaga);
+sagaMiddleware.run(rootSaga);
 
 ReactDOM.render(
   <React.StrictMode>

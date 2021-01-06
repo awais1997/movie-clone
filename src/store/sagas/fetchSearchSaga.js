@@ -1,6 +1,6 @@
-import { URL_SEARCH, KEY } from "./api/api";
+import { URL_SEARCH, KEY } from "../services";
 import { put, fork, takeEvery, call, all } from "redux-saga/effects";
-import { FetchSearchSuccess, FetchSearchFail } from "../actions/FetchSearch";
+import { fetchSearchSuccess, fetchSearchFail } from "../actions/fetchSearch";
 
 const apiCallFunc = async (payload) => {
   const res = await fetch(
@@ -12,9 +12,9 @@ const apiCallFunc = async (payload) => {
 function* workerFetchSearch({ payload }) {
   try {
     const response = yield call(apiCallFunc, payload);
-    yield put(FetchSearchSuccess(response));
+    yield put(fetchSearchSuccess(response));
   } catch (error) {
-    yield put(FetchSearchFail(error.message));
+    yield put(fetchSearchFail(error.message));
   }
 }
 function* watcherFetchSearch() {

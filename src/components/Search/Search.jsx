@@ -4,19 +4,22 @@ import "./Search.css";
 import { Grid } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import Movies from "../Movies";
+import { useDebounce } from "use-debounce";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   root: {
     flexGrow: 1,
   },
 }));
 
-const Search = ({ isloading, searchResult, FetchSearchRequest }) => {
+const Search = (props) => {
+  const { isloading, searchResult, fetchSearchRequest } = props;
   const classes = useStyles();
   const [searchValue, setSearchValue] = useState("");
 
   useEffect(() => {
-    searchValue.length && FetchSearchRequest(searchValue);
+    searchValue.length && fetchSearchRequest(searchValue);
+    console.log("search use effect call");
   }, [searchValue]);
 
   const getSearchValueFunc = (e) => {
@@ -39,7 +42,7 @@ const Search = ({ isloading, searchResult, FetchSearchRequest }) => {
           <h1>loading..</h1>
         ) : (
           <div className={classes.root}>
-            <Grid container item xs={12} spacing={4}>
+            <Grid container item xs={16} spacing={4}>
               {searchResult.results?.map((movie, index) => {
                 return <Movies key={index} movie={movie} />;
               })}

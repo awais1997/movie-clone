@@ -38,21 +38,22 @@ const useStyles = makeStyles({
   },
 });
 
-const TVshows = ({
-  isloading,
-  tvshowsList,
-  FetchTvshowsRequest,
-  FetchTVshowDetailRequest,
-}) => {
+const TVshows = (props) => {
+  const {
+    isloading,
+    tvshowsList,
+    fetchTvshowsRequest,
+    fetchTVshowDetailRequest,
+  } = props;
   const history = useHistory();
   useEffect(() => {
-    FetchTvshowsRequest();
+    fetchTvshowsRequest();
   }, []);
 
   const getTVshowFunc = (id) => {
     history.push(`tvshow/detail/${id}`);
     console.log(id);
-    FetchTVshowDetailRequest(id);
+    fetchTVshowDetailRequest(id);
   };
   const classes = useStyles();
 
@@ -64,43 +65,8 @@ const TVshows = ({
         {isloading !== true ? (
           <h1>loading..</h1>
         ) : (
-          //   <div className="TvshowsList-shows-container">
-
-          //   {
-          //     tvshowsList.results?.map((show,index)=>{
-
-          //       return (
-          //       <Card className={classes.root} key={index} onClick={()=>{getTVshowFunc(show.id)}}>
-          //         <CardActionArea>
-          //         <CardMedia
-          //           className={classes.media}
-          //           image={`https://image.tmdb.org/t/p/w220_and_h330_face${show.poster_path}`}
-          //           title= {show.name }
-          //         />
-          //           <Typography gutterBottom className={classes.rating}>
-          //             {show.vote_average}
-          //           </Typography>
-          //         <CardContent className={classes.content}>
-
-          //           <Typography gutterBottom variant="h7"component="h3" >
-          //             {show.name}
-          //           </Typography>
-          //           <Typography gutterBottom variant="h7" component="h5">
-          //           {show.first_air_date}
-          //           </Typography>
-
-          //         </CardContent>
-
-          //       </CardActionArea>
-
-          //     </Card>)
-          //     })
-          //   }
-
-          // </div>
-
           <div className={classes.root}>
-            <Grid container item xs={12} spacing={4}>
+            <Grid container item xs={16} spacing={4}>
               {tvshowsList.results?.map((show, index) => {
                 return (
                   <Grid item xs={12} md={6} lg={3} key={index}>
@@ -121,10 +87,10 @@ const TVshows = ({
                           {show.vote_average}
                         </Typography>
                         <CardContent className={classes.content}>
-                          <Typography gutterBottom variant="h7" component="h3">
+                          <Typography gutterBottom variant="h6">
                             {show.name}
                           </Typography>
-                          <Typography gutterBottom variant="h7" component="h5">
+                          <Typography gutterBottom variant="caption">
                             {show.first_air_date}
                           </Typography>
                         </CardContent>

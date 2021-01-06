@@ -1,16 +1,16 @@
 import Search from "./Search";
 import { connect } from "react-redux";
-import { FetchSearchRequest } from "../../actions/FetchSearch";
+import { fetchSearchRequest } from "../../store/actions/fetchSearch";
 
-const mapStateToProps = (state) => {
+const mapStateToProps = ({ searchReducer }) => {
   return {
-    isloading: state.isloading,
-    searchResult: state.searchResult,
+    isloading: searchReducer.get("isloading"),
+    searchResult: searchReducer.get("searchResult"),
   };
 };
 
 const mapDispatchToProps = {
-  FetchSearchRequest,
+  fetchSearchRequest,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Search);

@@ -1,9 +1,9 @@
-import { URL_UPCOMING, KEY } from "./api/api";
+import { URL_UPCOMING, KEY } from "../services";
 import { put, fork, takeEvery, call, all } from "redux-saga/effects";
 import {
-  FetchUpcomingSuccess,
-  FetchUpcomingFail,
-} from "../actions/FetchUpcoming";
+  fetchUpcomingSuccess,
+  fetchUpcomingFail,
+} from "../actions/fetchUpcoming";
 
 const apiCallFunc = async () => {
   const res = await fetch(`${URL_UPCOMING}?api_key=${KEY}`);
@@ -13,9 +13,9 @@ const apiCallFunc = async () => {
 function* workerFetchUpcoming() {
   try {
     const response = yield call(apiCallFunc);
-    yield put(FetchUpcomingSuccess(response));
+    yield put(fetchUpcomingSuccess(response));
   } catch (error) {
-    yield put(FetchUpcomingFail(error.message));
+    yield put(fetchUpcomingFail(error.message));
   }
 }
 function* watcherFetchUpcoming() {

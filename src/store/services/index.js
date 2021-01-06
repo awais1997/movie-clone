@@ -2,7 +2,7 @@ export const URL_MOVIES = "https://api.themoviedb.org/3/movie/popular";
 export const KEY = "6cb9d759e8d54fd6ad8ed3f81984906d";
 
 export const URL_UPCOMING = "https://api.themoviedb.org/3/movie/upcoming";
-export const URL_TRENDING = "https://api.themoviedb.org/3/trending/all/day";
+export const URL_TRENDING = "https://api.themoviedb.org/3/trending/movie/day";
 export const URL_TVSHOWS = "https://api.themoviedb.org/3/tv/popular";
 export const URL_PEOPLE = "https://api.themoviedb.org/3/person/popular";
 

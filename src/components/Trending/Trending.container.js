@@ -1,15 +1,15 @@
 import Trending from "./Trending";
 import { connect } from "react-redux";
-import { FetchTrendingRequest } from "../../actions/FetchTrending";
+import { fetchTrendingRequest } from "../../store/actions/fetchTrending";
 
-const mapStateToProps = (state) => {
+const mapStateToProps = ({ moviesReducer }) => {
   return {
-    isloading: state.isloading,
-    trendingList: state.trendingList,
+    isloading: moviesReducer.get("isloading"),
+    trendingList: moviesReducer.get("trendingList"),
   };
 };
 const mapDispatchToProps = {
-  FetchTrendingRequest,
+  fetchTrendingRequest,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Trending);

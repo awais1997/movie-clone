@@ -1,17 +1,17 @@
-export const FetchMovieReviewRequest = (id) => {
+export const fetchMovieReviewRequest = (id) => {
   return {
     type: "FETCH_MOVIEREVIEW_REQUEST",
     payload: id,
   };
 };
 
-export const FetchMovieReviewSuccess = (movieReview) => {
+export const fetchMovieReviewSuccess = (movieReview) => {
   return {
     type: "FETCH_MOVIEREVIEW_SUCCESS",
     payload: movieReview,
   };
 };
-export const FetchMovieReviewFail = (err) => {
+export const fetchMovieReviewFail = (err) => {
   return {
     type: "FETCH_MOVIEREVIEW_FAIL",
     payload: err,

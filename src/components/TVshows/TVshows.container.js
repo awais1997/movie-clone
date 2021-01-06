@@ -1,16 +1,16 @@
 import TVshows from "./TVshows";
 import { connect } from "react-redux";
-import { FetchTvshowsRequest } from "../../actions/FetchTvshows";
-import { FetchTVshowDetailRequest } from "../../actions/FetchTVshowDetail";
-const mapStateToProps = (state) => {
+import { fetchTvshowsRequest } from "../../store/actions/fetchTvshows";
+import { fetchTVshowDetailRequest } from "../../store/actions/fetchTVshowDetail";
+const mapStateToProps = ({ tvshowsReducer }) => {
   return {
-    isloading: state.isloading,
-    tvshowsList: state.tvshowsList,
+    isloading: tvshowsReducer.get("isloading"),
+    tvshowsList: tvshowsReducer.get("tvshowsList"),
   };
 };
 
 const mapDispatchToProps = {
-  FetchTvshowsRequest,
-  FetchTVshowDetailRequest,
+  fetchTvshowsRequest,
+  fetchTVshowDetailRequest,
 };
 export default connect(mapStateToProps, mapDispatchToProps)(TVshows);

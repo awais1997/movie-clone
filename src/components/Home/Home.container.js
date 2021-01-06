@@ -1,15 +1,15 @@
 import Home from "./Home";
 import { connect } from "react-redux";
-import { FetchMoviesRequest } from "../../actions/FetchMovies";
+import { fetchMoviesRequest } from "../../store/actions/fetchMovies";
 
-const mapStateToProps = (state) => {
+const mapStateToProps = ({ moviesReducer }) => {
   return {
-    isloading: state.isloading,
-    moviesList: state.moviesList,
+    isloading: moviesReducer.get("isloading"),
+    moviesList: moviesReducer.get("moviesList"),
   };
 };
 const mapStateToDispatch = {
-  FetchMoviesRequest,
+  fetchMoviesRequest,
 };
 
 export default connect(mapStateToProps, mapStateToDispatch)(Home);
