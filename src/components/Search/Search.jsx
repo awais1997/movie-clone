@@ -4,6 +4,7 @@ import "./Search.css";
 import { Grid } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import Movies from "../Movies";
+import { DebounceInput } from "react-debounce-input";
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -27,6 +28,14 @@ const Search = (props) => {
   return (
     <div className="Search-conatiner">
       <form className="Search-form">
+        {/* <DebounceInput
+          minLength={3}
+          debounceTimeout={1000}
+          onChange={(e) => {
+            getSearchValueFunc(e);
+          }}
+        /> */}
+
         <TextField
           className="Search-input"
           label="Search.."

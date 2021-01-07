@@ -13,4 +13,4 @@ export const URL_PERSON_DETAIL = "https://api.themoviedb.org/3/person/";
 export const URL_MOVIE_REVIEW = "https://api.themoviedb.org/3/movie/";
 export const URL_TVSHOW_REVIEW = "https://api.themoviedb.org/3/tv/";
 
-export const URL_SEARCH = "https://api.themoviedb.org/3/search/multi";
+export const URL_SEARCH = "https://api.themoviedb.org/3/search/movie";

@@ -15,23 +15,24 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(1),
   },
   root: {
-    minWidth: 200,
+    minWidth: 120,
     boxShadow: "0 5px 8px 0 rgba(0, 0, 0, 0.3)",
     backgroundColor: "#fafafa",
     borderRadius: "20px",
     marginBottom: "20px",
   },
   media: {
-    height: 260,
+    height: 280,
   },
 
   rating: {
     backgroundColor: "#032541",
     borderRadius: "50px",
     color: "white",
-    height: 30,
-    width: 30,
+    height: 23,
+    width: 23,
     textAlign: "center",
+    padding: "10px",
   },
 }));
 

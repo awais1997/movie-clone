@@ -32,9 +32,10 @@ const useStyles = makeStyles({
     backgroundColor: "#032541",
     borderRadius: "50px",
     color: "white",
-    height: 30,
-    width: 30,
+    height: 23,
+    width: 23,
     textAlign: "center",
+    padding: "10px",
   },
 });
 
