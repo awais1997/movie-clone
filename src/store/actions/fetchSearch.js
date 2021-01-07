@@ -1,5 +1,4 @@
 export const fetchSearchRequest = (query) => {
-  console.log("search action call");
   return {
     type: "FETCH_SEARCH_REQUEST",
     payload: query,

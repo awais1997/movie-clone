@@ -4,15 +4,24 @@ import {
   fetchTrendingSuccess,
   fetchTrendingFail,
 } from "../actions/fetchTrending";
+import axios from "axios";
 
-const apiCallFunc = async () => {
-  const res = await fetch(`${URL_TRENDING}?api_key=${KEY}`);
-  const data = await res.json();
-  return data;
+// call trending api
+
+// const callTrendingAPi = async () => {
+//   const res = await fetch(`${URL_TRENDING}?api_key=${KEY}`);
+//   const data = await res.json();
+//   return data;
+// };
+const callTrendingAPi = () => {
+  return axios.get(`${URL_TRENDING}?api_key=${KEY}`).then((res) => {
+    return res.data;
+  });
 };
+
 function* workerFetchTrending() {
   try {
-    const response = yield call(apiCallFunc);
+    const response = yield call(callTrendingAPi);
     yield put(fetchTrendingSuccess(response));
   } catch (error) {
     yield put(fetchTrendingFail(error.message));

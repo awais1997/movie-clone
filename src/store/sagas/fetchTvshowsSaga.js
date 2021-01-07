@@ -15,13 +15,20 @@ import {
   fetchTVshowReviewSuccess,
   fetchTVshowReviewFail,
 } from "../actions/fetchTVshowReview";
+import axios from "axios";
 
 // call TV shows api
 
-const callTVshowsApi = async () => {
-  const res = await fetch(`${URL_TVSHOWS}?api_key=${KEY}`);
-  const data = await res.json();
-  return data;
+// const callTVshowsApi = async () => {
+//   const res = await fetch(`${URL_TVSHOWS}?api_key=${KEY}`);
+//   const data = await res.json();
+//   return data;
+// };
+
+const callTVshowsApi = () => {
+  return axios.get(`${URL_TVSHOWS}?api_key=${KEY}`).then((res) => {
+    return res.data;
+  });
 };
 function* workerFetchTvshows() {
   try {
@@ -37,11 +44,20 @@ function* watcherFetchTvshows() {
 
 // call TV show Detail api
 
-const callTVshowDetailApi = async (payload) => {
-  const res = await fetch(`${URL_TVSHOW_DETAIL + payload}?api_key=${KEY}`);
-  const data = await res.json();
-  return data;
+// const callTVshowDetailApi = async (payload) => {
+//   const res = await fetch(`${URL_TVSHOW_DETAIL + payload}?api_key=${KEY}`);
+//   const data = await res.json();
+//   return data;
+// };
+
+const callTVshowDetailApi = (payload) => {
+  return axios
+    .get(`${URL_TVSHOW_DETAIL + payload}?api_key=${KEY}`)
+    .then((res) => {
+      return res.data;
+    });
 };
+
 function* workerFetchTVshowDetail({ payload }) {
   try {
     const response = yield call(callTVshowDetailApi, payload);
@@ -56,12 +72,20 @@ function* watcherFetchTVshowDetail() {
 
 // call TV show Review api
 
-const callTVshowReviewApi = async (payload) => {
-  const res = await fetch(
-    `${URL_TVSHOW_REVIEW + payload}/reviews?api_key=${KEY}`
-  );
-  const data = await res.json();
-  return data;
+// const callTVshowReviewApi = async (payload) => {
+//   const res = await fetch(
+//     `${URL_TVSHOW_REVIEW + payload}/reviews?api_key=${KEY}`
+//   );
+//   const data = await res.json();
+//   return data;
+// };
+
+const callTVshowReviewApi = (payload) => {
+  return axios
+    .get(`${URL_TVSHOW_REVIEW + payload}/reviews?api_key=${KEY}`)
+    .then((res) => {
+      return res.data;
+    });
 };
 function* workerFetchTVshowReview({ payload }) {
   try {

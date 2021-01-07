@@ -4,15 +4,24 @@ import {
   fetchUpcomingSuccess,
   fetchUpcomingFail,
 } from "../actions/fetchUpcoming";
+import axios from "axios";
 
-const apiCallFunc = async () => {
-  const res = await fetch(`${URL_UPCOMING}?api_key=${KEY}`);
-  const data = await res.json();
-  return data;
+// fetch upcoming api
+
+// const apiCallFunc = async () => {
+//   const res = await fetch(`${URL_UPCOMING}?api_key=${KEY}`);
+//   const data = await res.json();
+//   return data;
+// };
+
+const callUpcomingAPi = () => {
+  return axios.get(`${URL_UPCOMING}?api_key=${KEY}`).then((res) => {
+    return res.data;
+  });
 };
 function* workerFetchUpcoming() {
   try {
-    const response = yield call(apiCallFunc);
+    const response = yield call(callUpcomingAPi);
     yield put(fetchUpcomingSuccess(response));
   } catch (error) {
     yield put(fetchUpcomingFail(error.message));

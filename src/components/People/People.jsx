@@ -37,22 +37,16 @@ const useStyles = makeStyles({
 });
 
 const People = (props) => {
-  const {
-    isloading,
-    peopleList,
-    fetchPeopleRequest,
-    fetchPersonDetailRequest,
-  } = props;
+  const { isloading, peopleList, fetchPeopleRequest } = props;
 
   const history = useHistory();
   useEffect(() => {
     fetchPeopleRequest();
-  }, []);
+  }, [fetchPeopleRequest]);
 
   const getPersonDetailFunc = (id) => {
     console.log(id);
     history.push(`person/detail/${id}`);
-    fetchPersonDetailRequest(id);
   };
   const classes = useStyles();
 
@@ -65,7 +59,7 @@ const People = (props) => {
           <h1>loading..</h1>
         ) : (
           <div className={classes.root}>
-            <Grid container item xs={16} spacing={4}>
+            <Grid container item xs={"auto"} spacing={4}>
               {peopleList.results?.map((person, index) => {
                 return (
                   <Grid item xs={12} md={6} lg={3} key={index}>

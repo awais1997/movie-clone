@@ -15,7 +15,7 @@ const Trending = (props) => {
   const classes = useStyles();
   useEffect(() => {
     fetchTrendingRequest();
-  }, []);
+  }, [fetchTrendingRequest]);
 
   return (
     <div className="TrendingList-container">
@@ -25,7 +25,7 @@ const Trending = (props) => {
         <h1>loading..</h1>
       ) : (
         <div className={classes.root}>
-          <Grid container item xs={16} spacing={4}>
+          <Grid container item xs={"auto"} spacing={4}>
             {trendingList.results?.map((movie, index) => {
               return <Movies key={index} movie={movie} />;
             })}

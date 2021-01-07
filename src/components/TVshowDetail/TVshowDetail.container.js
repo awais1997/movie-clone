@@ -1,6 +1,8 @@
 import TVshowDetail from "./TVshowDetail";
 import { connect } from "react-redux";
 import { fetchTVshowReviewRequest } from "../../store/actions/fetchTVshowReview";
+import { fetchTVshowDetailRequest } from "../../store/actions/fetchTVshowDetail";
+import { withRouter } from "react-router-dom";
 
 const mapStateToProps = ({ tvshowsReducer }) => {
   return {
@@ -11,5 +13,9 @@ const mapStateToProps = ({ tvshowsReducer }) => {
 };
 const mapDispatchToProps = {
   fetchTVshowReviewRequest,
+  fetchTVshowDetailRequest,
 };
-export default connect(mapStateToProps, mapDispatchToProps)(TVshowDetail);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(withRouter(TVshowDetail));

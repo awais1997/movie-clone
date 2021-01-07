@@ -5,14 +5,22 @@ import {
   fetchPersonDetailSuccess,
   fetchPersonDetailFail,
 } from "../actions/fetchPersonDetail";
+import axios from "axios";
 
 // call People api
 
-const callPeopleApi = async () => {
-  const res = await fetch(`${URL_PEOPLE}?api_key=${KEY}`);
-  const data = await res.json();
-  return data;
+// const callPeopleApi = async () => {
+//   const res = await fetch(`${URL_PEOPLE}?api_key=${KEY}`);
+//   const data = await res.json();
+//   return data;
+// };
+
+const callPeopleApi = () => {
+  return axios.get(`${URL_PEOPLE}?api_key=${KEY}`).then((res) => {
+    return res.data;
+  });
 };
+
 function* workerFetchPeople() {
   try {
     const response = yield call(callPeopleApi);
@@ -27,11 +35,20 @@ function* watcherFetchPeople() {
 
 //call Person detail api
 
-const callPersonDetailApi = async (payload) => {
-  const res = await fetch(`${URL_PERSON_DETAIL + payload}?api_key=${KEY}`);
-  const data = await res.json();
-  return data;
+// const callPersonDetailApi = async (payload) => {
+//   const res = await fetch(`${URL_PERSON_DETAIL + payload}?api_key=${KEY}`);
+//   const data = await res.json();
+//   return data;
+// };
+
+const callPersonDetailApi = (payload) => {
+  return axios
+    .get(`${URL_PERSON_DETAIL + payload}?api_key=${KEY}`)
+    .then((res) => {
+      return res.data;
+    });
 };
+
 function* workerFetchPersonDetail({ payload }) {
   try {
     const response = yield call(callPersonDetailApi, payload);

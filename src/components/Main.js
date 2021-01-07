@@ -36,10 +36,10 @@ const Main = () => {
           <Route path="/movie/detail/:movieId">
             <MovieDetail />
           </Route>
-          <Route path="/tvshow/detail/:Id">
+          <Route path="/tvshow/detail/:tvId">
             <TVshowDetail />
           </Route>
-          <Route path="/person/detail/:Id">
+          <Route path="/person/detail/:personId">
             <PersonDetail />
           </Route>
           <Route path="/search">

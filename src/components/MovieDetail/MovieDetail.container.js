@@ -1,6 +1,8 @@
 import MovieDetail from "./MovieDetail";
 import { connect } from "react-redux";
 import { fetchMovieReviewRequest } from "../../store/actions/fetchMovieReview";
+import { withRouter } from "react-router-dom";
+import { fetchMovieDetailRequest } from "../../store/actions/fetchMovieDetail";
 
 const mapStateToProps = ({ moviesReducer }) => {
   return {
@@ -12,6 +14,10 @@ const mapStateToProps = ({ moviesReducer }) => {
 
 const mapDispatchToProps = {
   fetchMovieReviewRequest,
+  fetchMovieDetailRequest,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(MovieDetail);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(withRouter(MovieDetail));

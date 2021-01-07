@@ -15,7 +15,7 @@ const Upcoming = (props) => {
   const classes = useStyles();
   useEffect(() => {
     fetchUpcomingRequest();
-  }, []);
+  }, [fetchUpcomingRequest]);
   return (
     <div className="UpcomingList-container">
       <h1>Upcoming list</h1>
@@ -24,7 +24,7 @@ const Upcoming = (props) => {
         <h1>loading..</h1>
       ) : (
         <div className={classes.root}>
-          <Grid container item xs={16} spacing={4}>
+          <Grid container item xs={"auto"} spacing={4}>
             {upcomingList.results?.map((movie, index) => {
               return <Movies key={index} movie={movie} />;
             })}

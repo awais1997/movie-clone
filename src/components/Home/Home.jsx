@@ -15,8 +15,7 @@ const Home = (props) => {
   const classes = useStyles();
   useEffect(() => {
     fetchMoviesRequest();
-    console.log("use effect call");
-  }, []);
+  }, [fetchMoviesRequest]);
 
   return (
     <div>
@@ -27,7 +26,7 @@ const Home = (props) => {
           <h1>loading..</h1>
         ) : (
           <div className={classes.root}>
-            <Grid container item xs={16} spacing={6}>
+            <Grid container item xs={"auto"} spacing={6}>
               {moviesList.results?.map((movie, index) => {
                 return <Movies key={index} movie={movie} />;
               })}

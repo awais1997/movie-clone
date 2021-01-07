@@ -1,3 +1,4 @@
+import axios from "axios";
 import {
   URL_MOVIES,
   URL_MOVIE_DETAIL,
@@ -18,10 +19,16 @@ import {
 
 //call Movies api
 
-const callMoviesApi = async () => {
-  const res = await fetch(`${URL_MOVIES}?api_key=${KEY}`);
-  const data = await res.json();
-  return data;
+// const callMoviesApi = async () => {
+//   const res = await fetch(`${URL_MOVIES}?api_key=${KEY}`);
+//   const data = await res.json();
+//   return data;
+// };
+
+const callMoviesApi = () => {
+  return axios.get(`${URL_MOVIES}?api_key=${KEY}`).then((res) => {
+    return res.data;
+  });
 };
 function* workerFetchMovies() {
   try {
@@ -37,10 +44,17 @@ function* watcherFetchMovies() {
 
 // call Movie detail api
 
-const callMovieDetailApi = async (payload) => {
-  const res = await fetch(`${URL_MOVIE_DETAIL + payload}?api_key=${KEY}`);
-  const data = await res.json();
-  return data;
+// const callMovieDetailApi = async (payload) => {
+//   const res = await fetch(`${URL_MOVIE_DETAIL + payload}?api_key=${KEY}`);
+//   const data = await res.json();
+//   return data;
+// };
+const callMovieDetailApi = (payload) => {
+  return axios
+    .get(`${URL_MOVIE_DETAIL + payload}?api_key=${KEY}`)
+    .then((res) => {
+      return res.data;
+    });
 };
 function* workerFetchMovieDetail({ payload }) {
   try {
@@ -56,12 +70,19 @@ function* watcherFetchMovieDetail() {
 
 // call Movie Review api
 
-const callMovieReviewApi = async (payload) => {
-  const res = await fetch(
-    `${URL_MOVIE_REVIEW + payload}/reviews?api_key=${KEY}`
-  );
-  const data = await res.json();
-  return data;
+// const callMovieReviewApi = async (payload) => {
+//   const res = await fetch(
+//     `${URL_MOVIE_REVIEW + payload}/reviews?api_key=${KEY}`
+//   );
+//   const data = await res.json();
+//   return data;
+// };
+const callMovieReviewApi = (payload) => {
+  return axios
+    .get(`${URL_MOVIE_REVIEW + payload}/reviews?api_key=${KEY}`)
+    .then((res) => {
+      return res.data;
+    });
 };
 function* workerFetchMovieReview({ payload }) {
   try {

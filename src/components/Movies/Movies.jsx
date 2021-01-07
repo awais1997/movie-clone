@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(1),
   },
   root: {
-    minWidth: 230,
+    minWidth: 200,
     boxShadow: "0 5px 8px 0 rgba(0, 0, 0, 0.3)",
     backgroundColor: "#fafafa",
     borderRadius: "20px",
@@ -36,11 +36,10 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Movies = (props) => {
-  const { movie, fetchMovieDetailRequest } = props;
+  const { movie } = props;
   const history = useHistory();
   const getDetailFunc = (id) => {
     history.push(`movie/detail/${id}`);
-    fetchMovieDetailRequest(id);
   };
   const classes = useStyles();
   return (

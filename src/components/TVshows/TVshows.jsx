@@ -39,21 +39,14 @@ const useStyles = makeStyles({
 });
 
 const TVshows = (props) => {
-  const {
-    isloading,
-    tvshowsList,
-    fetchTvshowsRequest,
-    fetchTVshowDetailRequest,
-  } = props;
+  const { isloading, tvshowsList, fetchTvshowsRequest } = props;
   const history = useHistory();
   useEffect(() => {
     fetchTvshowsRequest();
-  }, []);
+  }, [fetchTvshowsRequest]);
 
   const getTVshowFunc = (id) => {
     history.push(`tvshow/detail/${id}`);
-    console.log(id);
-    fetchTVshowDetailRequest(id);
   };
   const classes = useStyles();
 
@@ -66,7 +59,7 @@ const TVshows = (props) => {
           <h1>loading..</h1>
         ) : (
           <div className={classes.root}>
-            <Grid container item xs={16} spacing={4}>
+            <Grid container item xs={"auto"} spacing={4}>
               {tvshowsList.results?.map((show, index) => {
                 return (
                   <Grid item xs={12} md={6} lg={3} key={index}>

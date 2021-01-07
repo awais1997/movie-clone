@@ -4,7 +4,6 @@ import "./Search.css";
 import { Grid } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import Movies from "../Movies";
-import { useDebounce } from "use-debounce";
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -42,7 +41,7 @@ const Search = (props) => {
           <h1>loading..</h1>
         ) : (
           <div className={classes.root}>
-            <Grid container item xs={16} spacing={4}>
+            <Grid container item xs={"auto"} spacing={4}>
               {searchResult.results?.map((movie, index) => {
                 return <Movies key={index} movie={movie} />;
               })}
