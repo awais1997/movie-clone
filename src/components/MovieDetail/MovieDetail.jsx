@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Card } from "@material-ui/core";
-import "./MovieDetail.css";
+import "../../style/style.css";
 import StarHalfOutlinedIcon from "@material-ui/icons/StarHalfOutlined";
 import LanguageOutlinedIcon from "@material-ui/icons/LanguageOutlined";
 import TranslateOutlinedIcon from "@material-ui/icons/TranslateOutlined";
@@ -31,14 +31,14 @@ const MovieDetail = (props) => {
     <div className="MovieDetail-container">
       {console.log("Movie Detail", movieDetail)}
       {console.log("Movie Review", movieReview)}
-      <Card className="MovieDetail-card" style={{ backgroundColor: "#032541" }}>
+      <Card className="Detail-card" style={{ backgroundColor: "#032541" }}>
         <div className="MovieDetail-image">
           <img
             src={`https://image.tmdb.org/t/p/w220_and_h330_face${movieDetail.poster_path}`}
             alt={movieDetail.title}
           />
         </div>
-        <div className="MovieDetail-content">
+        <div className="Detail-content">
           <h1>{movieDetail.title}</h1>
           <i>{movieDetail.tagline}</i>
           <h2>OverView</h2> <p>{movieDetail.overview}</p>

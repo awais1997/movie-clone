@@ -1,4 +1,20 @@
-.TVshowDetail-card {
+.Main-container {
+  padding: 50px 80px 50px 80px;
+}
+
+.Search-conatiner {
+  display: flex;
+  flex-direction: column;
+  padding: 80px;
+}
+
+.Search-input {
+  width: 100%;
+}
+
+/* Detail card page style */
+
+.Detail-card {
   background-color: #032541;
   align-items: center;
   display: flex;
@@ -7,7 +23,7 @@
   padding: 5%;
 }
 
-.TVshowDetail-content {
+.Detail-content {
   color: white;
   padding-left: 5%;
 }

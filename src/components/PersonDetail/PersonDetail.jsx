@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { Card } from "@material-ui/core";
-import "./PersonDetail.css";
+import "../../style/style.css";
 
 const PersonDetail = (props) => {
   const { personDetail, fetchPersonDetailRequest } = props;
@@ -11,17 +11,14 @@ const PersonDetail = (props) => {
   return (
     <div className="PersonDetail-container">
       {console.log("Person Detail", personDetail)}
-      <Card
-        className="PersonDetail-card"
-        style={{ backgroundColor: "#032541" }}
-      >
+      <Card className="Detail-card" style={{ backgroundColor: "#032541" }}>
         <div className="PersonDetail-image">
           <img
             src={`https://image.tmdb.org/t/p/w220_and_h330_face${personDetail.profile_path}`}
             alt={personDetail.title}
           />
         </div>
-        <div className="PersonDetail-content">
+        <div className="Detail-content">
           <h1>{personDetail.name}</h1>
           <i>{personDetail.known_for_department}</i>
           <h2>Biography</h2> <p>{personDetail.biography}</p>

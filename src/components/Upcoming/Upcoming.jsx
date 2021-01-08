@@ -2,34 +2,25 @@ import React, { useEffect } from "react";
 import Movies from "../Movies";
 import "./Upcoming.css";
 import { Grid } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-  },
-}));
+import "../../style/style.css";
 
 const Upcoming = (props) => {
   const { isloading, fetchUpcomingRequest, upcomingList } = props;
-  const classes = useStyles();
   useEffect(() => {
     fetchUpcomingRequest();
   }, [fetchUpcomingRequest]);
   return (
-    <div className="UpcomingList-container">
+    <div className="Main-container">
       <h1>Upcoming list</h1>
 
       {isloading !== true ? (
         <h1>loading..</h1>
       ) : (
-        <div className={classes.root}>
-          <Grid container item xs={"auto"} spacing={4}>
-            {upcomingList.results?.map((movie, index) => {
-              return <Movies key={index} movie={movie} />;
-            })}
-          </Grid>
-        </div>
+        <Grid container item xs={"auto"} spacing={4}>
+          {upcomingList.results?.map((movie, index) => {
+            return <Movies key={index} movie={movie} />;
+          })}
+        </Grid>
       )}
     </div>
   );

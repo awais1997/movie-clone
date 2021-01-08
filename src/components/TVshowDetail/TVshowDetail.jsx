@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Card } from "@material-ui/core";
-import "./TVshowDetail.css";
+import "../../style/style.css";
 import StarHalfOutlinedIcon from "@material-ui/icons/StarHalfOutlined";
 import LanguageOutlinedIcon from "@material-ui/icons/LanguageOutlined";
 import TranslateOutlinedIcon from "@material-ui/icons/TranslateOutlined";
@@ -26,17 +26,14 @@ const TVshowDetail = (props) => {
       {console.log("TVshow Detail", tvshowDetail)}
       {console.log("TVshow Review", tvshowReview)}
 
-      <Card
-        className="TVshowDetail-card"
-        style={{ backgroundColor: "#032541" }}
-      >
+      <Card className="Detail-card" style={{ backgroundColor: "#032541" }}>
         <div className="TVshowDetail-image">
           <img
             src={`https://image.tmdb.org/t/p/w220_and_h330_face${tvshowDetail.poster_path}`}
             alt={tvshowDetail.title}
           />
         </div>
-        <div className="TVshowDetail-content">
+        <div className="Detail-content">
           <h1>{tvshowDetail.name}</h1>
           <i>{tvshowDetail.tagline}</i>
           <h2>OverView</h2> <p>{tvshowDetail.overview}</p>

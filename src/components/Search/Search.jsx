@@ -1,33 +1,25 @@
 import React, { useState, useEffect } from "react";
 import TextField from "@material-ui/core/TextField";
-import "./Search.css";
+import "../../style/style.css";
 import { Grid } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
 import Movies from "../Movies";
-import { DebounceInput } from "react-debounce-input";
-
-const useStyles = makeStyles(() => ({
-  root: {
-    flexGrow: 1,
-  },
-}));
+//import { DebounceInput } from "react-debounce-input";
 
 const Search = (props) => {
   const { isloading, searchResult, fetchSearchRequest } = props;
-  const classes = useStyles();
   const [searchValue, setSearchValue] = useState("");
 
   useEffect(() => {
     searchValue.length && fetchSearchRequest(searchValue);
     console.log("search use effect call");
-  }, [searchValue]);
+  }, [searchValue, fetchSearchRequest]);
 
   const getSearchValueFunc = (e) => {
     setSearchValue(e.target.value);
   };
   return (
     <div className="Search-conatiner">
-      <form className="Search-form">
+      <form>
         {/* <DebounceInput
           minLength={3}
           debounceTimeout={1000}
@@ -44,20 +36,17 @@ const Search = (props) => {
           }}
         />
       </form>
-      <div className="Search-result-container">
-        <h1>Your Search result</h1>
-        {isloading !== true ? (
-          <h1>loading..</h1>
-        ) : (
-          <div className={classes.root}>
-            <Grid container item xs={"auto"} spacing={4}>
-              {searchResult.results?.map((movie, index) => {
-                return <Movies key={index} movie={movie} />;
-              })}
-            </Grid>
-          </div>
-        )}
-      </div>
+      <h1>Your Search result</h1>
+      {console.log("searchResult..", searchResult)}
+      {isloading !== true ? (
+        <h1>loading..</h1>
+      ) : (
+        <Grid container item xs={"auto"} spacing={4}>
+          {searchResult.results?.map((movie, index) => {
+            return <Movies key={index} movie={movie} />;
+          })}
+        </Grid>
+      )}
     </div>
   );
 };

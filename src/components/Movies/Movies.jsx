@@ -7,34 +7,9 @@ import {
   Typography,
   Grid,
 } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
 import { useHistory } from "react-router-dom";
-
-const useStyles = makeStyles((theme) => ({
-  card: {
-    padding: theme.spacing(1),
-  },
-  root: {
-    minWidth: 120,
-    boxShadow: "0 5px 8px 0 rgba(0, 0, 0, 0.3)",
-    backgroundColor: "#fafafa",
-    borderRadius: "20px",
-    marginBottom: "20px",
-  },
-  media: {
-    height: 280,
-  },
-
-  rating: {
-    backgroundColor: "#032541",
-    borderRadius: "50px",
-    color: "white",
-    height: 23,
-    width: 23,
-    textAlign: "center",
-    padding: "10px",
-  },
-}));
+import { useStyles } from "../../style/cardStyle";
+import placeholderImage from "../../assets/placeholderImage.png";
 
 const Movies = (props) => {
   const { movie } = props;
@@ -44,7 +19,7 @@ const Movies = (props) => {
   };
   const classes = useStyles();
   return (
-    <Grid item xs={12} md={6} lg={3}>
+    <Grid item xs={12} sm={6} md={3} lg={2}>
       <Card
         className={classes.root}
         onClick={() => {
@@ -54,23 +29,22 @@ const Movies = (props) => {
         <CardActionArea>
           <CardMedia
             className={classes.media}
-            image={`https://image.tmdb.org/t/p/w220_and_h330_face${movie.poster_path}`}
+            image={
+              movie.poster_path === null
+                ? placeholderImage
+                : `https://image.tmdb.org/t/p/w220_and_h330_face${movie.poster_path}`
+            }
             title={movie.title}
           />
           <Typography gutterBottom className={classes.rating}>
             {movie.vote_average}
           </Typography>
           <CardContent className={classes.content}>
-            <Typography variant="h6" gutterBottom>
-              {movie.title !== null
-                ? movie.title
-                : movie.original_title !== null
-                ? movie.original_title
-                : movie.original_name !== null
-                ? movie.original_name
-                : "..."}
+            <Typography variant="body" gutterBottom>
+              {movie.title.slice(0, 15)}
+              ...
             </Typography>
-            <Typography variant="caption" gutterBottom>
+            <Typography variant="caption" gutterBottom color="textSecondary">
               {movie.release_date}
             </Typography>
           </CardContent>
