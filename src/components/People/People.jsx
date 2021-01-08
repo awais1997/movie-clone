@@ -59,7 +59,7 @@ const People = (props) => {
                         {person.popularity}
                       </Typography>
                       <CardContent className={classes.content}>
-                        <Typography gutterBottom variant="body">
+                        <Typography gutterBottom variant="inherit">
                           {person.name}
                         </Typography>
 

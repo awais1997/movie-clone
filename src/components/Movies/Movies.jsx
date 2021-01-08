@@ -40,7 +40,7 @@ const Movies = (props) => {
             {movie.vote_average}
           </Typography>
           <CardContent className={classes.content}>
-            <Typography variant="body" gutterBottom>
+            <Typography variant="inherit" gutterBottom>
               {movie.title.slice(0, 15)}
               ...
             </Typography>

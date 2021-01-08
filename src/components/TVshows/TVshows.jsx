@@ -53,7 +53,7 @@ const TVshows = (props) => {
                         {show.vote_average}
                       </Typography>
                       <CardContent className={classes.content}>
-                        <Typography gutterBottom variant="body">
+                        <Typography gutterBottom variant="inherit">
                           {show.name.slice(0, 15)}...
                         </Typography>
                         <Typography
