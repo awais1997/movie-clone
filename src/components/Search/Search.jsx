@@ -18,7 +18,7 @@ const Search = (props) => {
     setSearchValue(e.target.value);
   };
   return (
-    <div className="Search-conatiner">
+    <div className="main-container">
       <form>
         {/* <DebounceInput
           minLength={3}
@@ -29,7 +29,7 @@ const Search = (props) => {
         /> */}
 
         <TextField
-          className="Search-input"
+          className="search-input"
           label="Search.."
           onChange={(e) => {
             getSearchValueFunc(e);

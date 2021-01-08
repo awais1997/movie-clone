@@ -26,7 +26,7 @@ const TVshows = (props) => {
 
   return (
     <div>
-      <div className="Main-container">
+      <div className="main-container">
         <h1>TV Shows list</h1>
         {console.log("tvshows..", tvshowsList)}
         {isloading !== true ? (

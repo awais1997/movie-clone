@@ -13,7 +13,7 @@ const Home = (props) => {
   return (
     <div>
       <Banner />
-      <div className="Main-container">
+      <div className="main-container">
         <h1>Popular list</h1>
         {isloading !== true ? (
           <h1>loading..</h1>

@@ -11,7 +11,7 @@ const Trending = (props) => {
   }, [fetchTrendingRequest]);
 
   return (
-    <div className="Main-container">
+    <div className="main-container">
       <h1>Trending list</h1>
       {console.log("trending..", trendingList)}
       {isloading !== true ? (

@@ -9,16 +9,16 @@ const PersonDetail = (props) => {
   }, [fetchPersonDetailRequest]);
 
   return (
-    <div className="PersonDetail-container">
+    <div className="personDetail-container">
       {console.log("Person Detail", personDetail)}
-      <Card className="Detail-card" style={{ backgroundColor: "#032541" }}>
-        <div className="PersonDetail-image">
+      <Card className="detail-card" style={{ backgroundColor: "#032541" }}>
+        <div>
           <img
             src={`https://image.tmdb.org/t/p/w220_and_h330_face${personDetail.profile_path}`}
             alt={personDetail.title}
           />
         </div>
-        <div className="Detail-content">
+        <div className="detail-content">
           <h1>{personDetail.name}</h1>
           <i>{personDetail.known_for_department}</i>
           <h2>Biography</h2> <p>{personDetail.biography}</p>

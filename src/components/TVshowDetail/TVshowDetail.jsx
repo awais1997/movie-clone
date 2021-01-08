@@ -22,18 +22,18 @@ const TVshowDetail = (props) => {
     fetchTVshowReviewRequest(id);
   };
   return (
-    <div className="TVshowDetail-container">
+    <div className="tvshowDetail-container">
       {console.log("TVshow Detail", tvshowDetail)}
       {console.log("TVshow Review", tvshowReview)}
 
-      <Card className="Detail-card" style={{ backgroundColor: "#032541" }}>
-        <div className="TVshowDetail-image">
+      <Card className="detail-card" style={{ backgroundColor: "#032541" }}>
+        <div>
           <img
             src={`https://image.tmdb.org/t/p/w220_and_h330_face${tvshowDetail.poster_path}`}
             alt={tvshowDetail.title}
           />
         </div>
-        <div className="Detail-content">
+        <div className="detail-content">
           <h1>{tvshowDetail.name}</h1>
           <i>{tvshowDetail.tagline}</i>
           <h2>OverView</h2> <p>{tvshowDetail.overview}</p>

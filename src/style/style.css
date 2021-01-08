@@ -1,20 +1,20 @@
-.Main-container {
+.main-container {
   padding: 50px 80px 50px 80px;
 }
 
-.Search-conatiner {
+/* .search-container {
   display: flex;
   flex-direction: column;
   padding: 80px;
-}
+} */
 
-.Search-input {
+.search-input {
   width: 100%;
 }
 
 /* Detail card page style */
 
-.Detail-card {
+.detail-card {
   background-color: #032541;
   align-items: center;
   display: flex;
@@ -23,7 +23,7 @@
   padding: 5%;
 }
 
-.Detail-content {
+.detail-content {
   color: white;
   padding-left: 5%;
 }

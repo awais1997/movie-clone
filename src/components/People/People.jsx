@@ -28,7 +28,7 @@ const People = (props) => {
 
   return (
     <div>
-      <div className="Main-container">
+      <div className="main-container">
         <h1>People list</h1>
         {console.log("people..", peopleList)}
         {isloading !== true ? (

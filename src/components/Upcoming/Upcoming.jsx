@@ -10,7 +10,7 @@ const Upcoming = (props) => {
     fetchUpcomingRequest();
   }, [fetchUpcomingRequest]);
   return (
-    <div className="Main-container">
+    <div className="main-container">
       <h1>Upcoming list</h1>
 
       {isloading !== true ? (

@@ -28,20 +28,21 @@ const MovieDetail = (props) => {
     fetchMovieReviewRequest(id);
   };
   return (
-    <div className="MovieDetail-container">
+    <div className="movieDetail-container">
       {console.log("Movie Detail", movieDetail)}
       {console.log("Movie Review", movieReview)}
-      <Card className="Detail-card" style={{ backgroundColor: "#032541" }}>
-        <div className="MovieDetail-image">
+      <Card className="detail-card" style={{ backgroundColor: "#032541" }}>
+        <div>
           <img
             src={`https://image.tmdb.org/t/p/w220_and_h330_face${movieDetail.poster_path}`}
             alt={movieDetail.title}
           />
         </div>
-        <div className="Detail-content">
+        <div className="detail-content">
           <h1>{movieDetail.title}</h1>
           <i>{movieDetail.tagline}</i>
-          <h2>OverView</h2> <p>{movieDetail.overview}</p>
+          <h2>OverView</h2>
+          <p>{movieDetail.overview}</p>
           <table>
             <tbody>
               <tr>
