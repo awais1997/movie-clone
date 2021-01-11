@@ -16,7 +16,7 @@ const TVshowDetail = (props) => {
 
   useEffect(() => {
     fetchTVshowDetailRequest(props?.match?.params?.tvId);
-  }, [fetchTVshowDetailRequest]);
+  }, [fetchTVshowDetailRequest, props?.match?.params?.tvId]);
   const getReviewFunc = (id) => {
     setGetReview(true);
     fetchTVshowReviewRequest(id);

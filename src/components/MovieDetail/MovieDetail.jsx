@@ -17,7 +17,7 @@ const MovieDetail = (props) => {
 
   useEffect(() => {
     fetchMovieDetailRequest(props?.match?.params?.movieId);
-  }, [fetchMovieDetailRequest]);
+  }, [fetchMovieDetailRequest, props?.match?.params?.movieId]);
 
   // const movie =
   //   movieDetail.length && movieDetail.find((movie) => movie.id === movieId);

@@ -6,7 +6,7 @@ const PersonDetail = (props) => {
   const { personDetail, fetchPersonDetailRequest } = props;
   useEffect(() => {
     fetchPersonDetailRequest(props?.match?.params?.personId);
-  }, [fetchPersonDetailRequest]);
+  }, [fetchPersonDetailRequest, props?.match?.params?.personId]);
 
   return (
     <div className="personDetail-container">
