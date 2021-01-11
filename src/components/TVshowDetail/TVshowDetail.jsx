@@ -75,6 +75,7 @@ const TVshowDetail = (props) => {
               <th>Created At</th>
             </tr>
             {tvshowReview?.results?.map((review, index) => {
+              const date = new Date(review.created_at);
               return (
                 <tr key={index}>
                   <td>
@@ -89,7 +90,7 @@ const TVshowDetail = (props) => {
                   <td>
                     {review.created_at === null
                       ? "No Created Date"
-                      : review.created_at}
+                      : date.getFullYear()}
                   </td>
                 </tr>
               );

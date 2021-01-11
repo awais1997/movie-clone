@@ -81,13 +81,14 @@ const MovieDetail = (props) => {
               <th>Created At</th>
             </tr>
             {movieReview?.results?.map((review, index) => {
+              const date = new Date(review.created_at);
               return (
                 <tr key={index}>
                   <td>{review.author}</td>
 
                   <td>{review.content.slice(0, 250)} ...</td>
 
-                  <td>{review.created_at}</td>
+                  <td>{date.getFullYear()}</td>
                 </tr>
               );
             })}
