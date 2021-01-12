@@ -1,12 +1,5 @@
 import { URL_SEARCH, KEY } from "../services";
-import {
-  put,
-  fork,
-  takeEvery,
-  call,
-  all,
-  takeLatest,
-} from "redux-saga/effects";
+import { put, fork, call, all, takeLatest } from "redux-saga/effects";
 import { fetchSearchSuccess, fetchSearchFail } from "../actions/fetchSearch";
 import axios from "axios";
 

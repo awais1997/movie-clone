@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
-import Movies from "../Movies";
-import "./Upcoming.css";
 import { Grid } from "@material-ui/core";
+import Movies from "../Movies";
 import "../../style/style.css";
 
 const Upcoming = (props) => {

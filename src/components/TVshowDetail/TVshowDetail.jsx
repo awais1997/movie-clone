@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Card } from "@material-ui/core";
-import "../../style/style.css";
 import StarHalfOutlinedIcon from "@material-ui/icons/StarHalfOutlined";
 import LanguageOutlinedIcon from "@material-ui/icons/LanguageOutlined";
 import TranslateOutlinedIcon from "@material-ui/icons/TranslateOutlined";
+import "../../style/style.css";
 
 const TVshowDetail = (props) => {
   const {

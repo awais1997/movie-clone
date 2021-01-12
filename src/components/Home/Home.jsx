@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
-import Banner from "../Banner";
-import "../../style/style.css";
-import Movies from "../Movies";
 import { Grid } from "@material-ui/core";
+import Banner from "../Banner";
+import Movies from "../Movies";
+import "../../style/style.css";
+
 const Home = (props) => {
   const { fetchMoviesRequest, isloading, moviesList } = props;
 

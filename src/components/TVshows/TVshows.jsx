@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import {
   Card,
   CardActionArea,
@@ -8,8 +9,6 @@ import {
   Grid,
 } from "@material-ui/core";
 import "../../style/style.css";
-
-import { useHistory } from "react-router-dom";
 import { useStyles } from "../../style/cardStyle";
 
 const TVshows = (props) => {

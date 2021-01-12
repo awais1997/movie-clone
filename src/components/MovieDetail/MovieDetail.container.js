@@ -1,7 +1,7 @@
 import MovieDetail from "./MovieDetail";
 import { connect } from "react-redux";
-import { fetchMovieReviewRequest } from "../../store/actions/fetchMovieReview";
 import { withRouter } from "react-router-dom";
+import { fetchMovieReviewRequest } from "../../store/actions/fetchMovieReview";
 import { fetchMovieDetailRequest } from "../../store/actions/fetchMovieDetail";
 
 const mapStateToProps = ({ moviesReducer }) => {

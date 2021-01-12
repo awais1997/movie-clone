@@ -2,8 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { AppBar, makeStyles } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
-import logo from "./logo/logo.svg";
-import "./Navbar.css";
+import logo from "../../assets/logo.svg";
+import "../../style/style.css";
 
 const useStyles = makeStyles(() => ({
   appbar: {
@@ -17,27 +17,27 @@ const Navbar = () => {
   return (
     <div>
       <AppBar position="static" className={classes.appbar}>
-        <div className="Navbar-container">
-          <div className="Navbar-logo">
+        <div className="navbar-container">
+          <div className="navbar-logo">
             <Link to="/">
               <img src={logo} alt="Logo" />
             </Link>
           </div>
-          <div className="Navbar-tabs">
-            <Link to="/upcoming" className="Navbar-link">
+          <div className="navbar-tabs">
+            <Link to="/upcoming" className="navbar-link">
               Upcoming
             </Link>
-            <Link to="/trending" className="Navbar-link">
+            <Link to="/trending" className="navbar-link">
               Trending
             </Link>
-            <Link to="/tvshows" className="Navbar-link">
+            <Link to="/tvshows" className="navbar-link">
               TV shows
             </Link>
-            <Link to="/people" className="Navbar-link">
+            <Link to="/people" className="navbar-link">
               People
             </Link>
-            <Link to="/search" className="Navbar-link">
-              <SearchIcon className="Navbar-icon" />
+            <Link to="/search" className="navbar-link">
+              <SearchIcon className="navbar-icon" />
             </Link>
           </div>
         </div>

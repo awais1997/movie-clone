@@ -1,3 +1,27 @@
+/* Navbar style */
+.navbar-logo {
+  width: 80px;
+  padding-top: 1%;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 0% 3% 0% 3%;
+}
+
+.navbar-tabs {
+  flex-grow: 1;
+  display: flex;
+  justify-content: space-around;
+  padding-top: 1.5%;
+}
+.navbar-link {
+  color: white;
+  text-decoration: none;
+}
+/* main container styel */
+
 .main-container {
   padding: 50px 80px 50px 80px;
 }

@@ -1,4 +1,4 @@
-.Banner-container {
+.banner-container {
   background-image: url("../../assets/banner.jpg");
   padding: 50px;
   color: #ffff;
@@ -6,18 +6,18 @@
   background-size: cover;
   height: 250px;
 }
-.Banner-form {
+.banner-form {
   display: flex;
   position: relative;
 }
-.Banner-form-input {
+.banner-form-input {
   width: 100%;
   height: 40px;
   border-radius: 20px;
   border-style: none;
   text-align: center;
 }
-.Banner-form-btn {
+.banner-form-btn {
   background-color: rgb(111, 243, 188);
   color: white;
   padding: 13px;

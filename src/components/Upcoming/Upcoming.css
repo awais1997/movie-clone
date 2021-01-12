@@ -1,8 +1,0 @@
-.UpcomingList-container {
-  padding: 50px 80px 50px 80px;
-}
-.UpcomingList-movies-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
