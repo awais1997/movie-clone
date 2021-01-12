@@ -29,7 +29,11 @@ const TVshowDetail = (props) => {
       <Card className="detail-card" style={{ backgroundColor: "#032541" }}>
         <div>
           <img
-            src={`https://image.tmdb.org/t/p/w220_and_h330_face${tvshowDetail.poster_path}`}
+            src={
+              tvshowDetail === undefined
+                ? ""
+                : `https://image.tmdb.org/t/p/w220_and_h330_face${tvshowDetail.poster_path}`
+            }
             alt={tvshowDetail.title}
           />
         </div>

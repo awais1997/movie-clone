@@ -14,7 +14,11 @@ const PersonDetail = (props) => {
       <Card className="detail-card" style={{ backgroundColor: "#032541" }}>
         <div>
           <img
-            src={`https://image.tmdb.org/t/p/w220_and_h330_face${personDetail.profile_path}`}
+            src={
+              personDetail.profile_path === undefined
+                ? ""
+                : `https://image.tmdb.org/t/p/w220_and_h330_face${personDetail.profile_path}`
+            }
             alt={personDetail.title}
           />
         </div>

@@ -34,7 +34,11 @@ const MovieDetail = (props) => {
       <Card className="detail-card" style={{ backgroundColor: "#032541" }}>
         <div>
           <img
-            src={`https://image.tmdb.org/t/p/w220_and_h330_face${movieDetail.poster_path}`}
+            src={
+              movieDetail.poster_path === undefined
+                ? ""
+                : `https://image.tmdb.org/t/p/w220_and_h330_face${movieDetail.poster_path}`
+            }
             alt={movieDetail.title}
           />
         </div>
