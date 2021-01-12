@@ -10,7 +10,7 @@ const PersonDetail = (props) => {
 
   return (
     <div className="personDetail-container">
-      {console.log("Person Detail", personDetail)}
+      {/* {console.log("Person Detail", personDetail)} */}
       <Card className="detail-card" style={{ backgroundColor: "#032541" }}>
         <div>
           <img

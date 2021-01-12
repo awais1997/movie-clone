@@ -28,7 +28,7 @@ const TVshows = (props) => {
     <div>
       <div className="main-container">
         <h1>TV Shows list</h1>
-        {console.log("tvshows..", tvshowsList)}
+        {/* {console.log("tvshows..", tvshowsList)} */}
         {isloading !== true ? (
           <h1>loading..</h1>
         ) : (

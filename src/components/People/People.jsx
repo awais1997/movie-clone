@@ -30,7 +30,7 @@ const People = (props) => {
     <div>
       <div className="main-container">
         <h1>People list</h1>
-        {console.log("people..", peopleList)}
+        {/* {console.log("people..", peopleList)} */}
         {isloading !== true ? (
           <h1>loading..</h1>
         ) : (

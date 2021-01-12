@@ -13,7 +13,7 @@ const Trending = (props) => {
   return (
     <div className="main-container">
       <h1>Trending list</h1>
-      {console.log("trending..", trendingList)}
+      {/* {console.log("trending..", trendingList)} */}
       {isloading !== true ? (
         <h1>loading..</h1>
       ) : (

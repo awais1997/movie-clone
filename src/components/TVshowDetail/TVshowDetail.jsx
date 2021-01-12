@@ -23,8 +23,8 @@ const TVshowDetail = (props) => {
   };
   return (
     <div className="tvshowDetail-container">
-      {console.log("TVshow Detail", tvshowDetail)}
-      {console.log("TVshow Review", tvshowReview)}
+      {/* {console.log("TVshow Detail", tvshowDetail)}
+      {console.log("TVshow Review", tvshowReview)} */}
 
       <Card className="detail-card" style={{ backgroundColor: "#032541" }}>
         <div>

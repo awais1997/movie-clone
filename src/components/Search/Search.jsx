@@ -37,7 +37,7 @@ const Search = (props) => {
         />
       </form>
       <h1>Your Search result</h1>
-      {console.log("searchResult..", searchResult)}
+      {/* {console.log("searchResult..", searchResult)} */}
       {isloading !== true ? (
         <h1>loading..</h1>
       ) : (

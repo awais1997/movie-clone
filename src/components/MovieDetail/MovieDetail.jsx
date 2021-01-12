@@ -29,8 +29,8 @@ const MovieDetail = (props) => {
   };
   return (
     <div className="movieDetail-container">
-      {console.log("Movie Detail", movieDetail)}
-      {console.log("Movie Review", movieReview)}
+      {/* {console.log("Movie Detail", movieDetail)}
+      {console.log("Movie Review", movieReview)} */}
       <Card className="detail-card" style={{ backgroundColor: "#032541" }}>
         <div>
           <img
