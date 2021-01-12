@@ -2,14 +2,13 @@
   padding: 50px 80px 50px 80px;
 }
 
-/* .search-container {
-  display: flex;
-  flex-direction: column;
-  padding: 80px;
-} */
-
 .search-input {
   width: 100%;
+  border: 0;
+  border-bottom: 2px solid gray;
+  outline: 0;
+  font-size: 1.3rem;
+  padding: 7px 0;
 }
 
 /* Detail card page style */
@@ -20,8 +19,7 @@
   display: flex;
   justify-content: space-evenly;
   margin: 5% 0% 5% 0%;
-  /* margin-top: 5%;
-  margin-bottom: 5%; */
+
   padding: 5%;
 }
 
