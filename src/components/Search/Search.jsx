@@ -11,7 +11,6 @@ const Search = (props) => {
 
   useEffect(() => {
     searchValue.length && fetchSearchRequest(searchValue);
-    console.log("search use effect call");
   }, [searchValue, fetchSearchRequest]);
 
   const getSearchValueFunc = (e) => {
