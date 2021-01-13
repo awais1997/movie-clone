@@ -2,7 +2,7 @@ import { fromJS } from "immutable";
 
 const initialState = fromJS({
   moviesList: [],
-  isloading: false,
+  isloading: true,
   error: null,
   searchResult: [],
 });
@@ -12,7 +12,7 @@ const searchReducer = (state = initialState, action) => {
     //Fetch search result
 
     case "FETCH_SEARCH_REQUEST": {
-      return state;
+      return state.set("isloading", false);
     }
     case "FETCH_SEARCH_SUCCESS": {
       return state.set("isloading", true).set("searchResult", action.payload);

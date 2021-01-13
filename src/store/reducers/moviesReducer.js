@@ -2,7 +2,7 @@ import { fromJS } from "immutable";
 
 const initialState = fromJS({
   moviesList: [],
-  isloading: false,
+  isloading: true,
   error: null,
   upcomingList: [],
   trendingList: [],
@@ -15,7 +15,7 @@ const moviesReducer = (state = initialState, action) => {
     // fetch movies
 
     case "FETCH_MOVIES_REQUEST": {
-      return state;
+      return state.set("isloading", false);
     }
     case "FETCH_MOVIES_SUCCESS": {
       return state.set("isloading", true).set("moviesList", action.payload);
@@ -27,7 +27,7 @@ const moviesReducer = (state = initialState, action) => {
     //Fretch Upcoming
 
     case "FETCH_UPCOMING_REQUEST": {
-      return state;
+      return state.set("isloading", false);
     }
     case "FETCH_UPCOMING_SUCCESS": {
       return state.set("isloading", true).set("upcomingList", action.payload);
@@ -39,7 +39,7 @@ const moviesReducer = (state = initialState, action) => {
     //Fetch Trending
 
     case "FETCH_TRENDING_REQUEST": {
-      return state;
+      return state.set("isloading", false);
     }
     case "FETCH_TRENDING_SUCCESS": {
       return state.set("isloading", true).set("trendingList", action.payload);
@@ -51,7 +51,7 @@ const moviesReducer = (state = initialState, action) => {
     //Fetch Movie Detail
 
     case "FETCH_MOVIEDETAIL_REQUEST": {
-      return state;
+      return state.set("isloading", false);
     }
     case "FETCH_MOVIEDETAIL_SUCCESS": {
       return state.set("isloading", true).set("movieDetail", action.payload);
@@ -63,7 +63,7 @@ const moviesReducer = (state = initialState, action) => {
     // Fetch movie Review
 
     case "FETCH_MOVIEREVIEW_REQUEST": {
-      return state;
+      return state.set("isloading", false);
     }
     case "FETCH_MOVIEREVIEW_SUCCESS": {
       return state.set("isloading", true).set("movieReview", action.payload);
