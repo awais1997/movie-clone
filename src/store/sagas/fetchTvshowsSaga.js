@@ -4,7 +4,7 @@ import {
   URL_TVSHOW_REVIEW,
   KEY,
 } from "../services";
-import { put, fork, takeEvery, call, all } from "redux-saga/effects";
+import { put, spawn, takeEvery, call, all } from "redux-saga/effects";
 import { fetchTvshowsSuccess, fetchTvshowsFail } from "../actions/fetchTvshows";
 import {
   fetchTVshowDetailSuccess,
@@ -101,8 +101,8 @@ function* watcherFetchTVshowReview() {
 
 export default function* rootFetchTvshowsSaga() {
   yield all([
-    fork(watcherFetchTvshows),
-    fork(watcherFetchTVshowDetail),
-    fork(watcherFetchTVshowReview),
+    spawn(watcherFetchTvshows),
+    spawn(watcherFetchTVshowDetail),
+    spawn(watcherFetchTVshowReview),
   ]);
 }

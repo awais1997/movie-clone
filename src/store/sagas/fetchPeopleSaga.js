@@ -1,5 +1,5 @@
 import { URL_PEOPLE, URL_PERSON_DETAIL, KEY } from "../services";
-import { put, fork, takeEvery, call, all } from "redux-saga/effects";
+import { put, spawn, takeEvery, call, all } from "redux-saga/effects";
 import { fetchPeopleSuccess, fetchPeopleFail } from "../actions/fetchPeople";
 import {
   fetchPersonDetailSuccess,
@@ -32,9 +32,9 @@ function* workerFetchPeople() {
   console.log("api end");
 }
 function* watcherFetchPeople() {
-  console.log("fork  start");
+  console.log("spawn  start");
   yield takeEvery("FETCH_PEOPLE_REQUEST", workerFetchPeople);
-  console.log("fork  end");
+  console.log("spawn  end");
 }
 
 //call Person detail api
@@ -66,6 +66,6 @@ function* watcherFetchPersonDetail() {
 }
 export default function* rootFetchPeopleSaga() {
   console.log("main start");
-  yield all([fork(watcherFetchPeople), fork(watcherFetchPersonDetail)]);
+  yield all([spawn(watcherFetchPeople), spawn(watcherFetchPersonDetail)]);
   console.log("main end");
 }

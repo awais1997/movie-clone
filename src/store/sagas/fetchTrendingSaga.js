@@ -1,5 +1,5 @@
 import { URL_TRENDING, KEY } from "../services";
-import { put, fork, takeEvery, call, all } from "redux-saga/effects";
+import { put, spawn, takeEvery, call, all } from "redux-saga/effects";
 import {
   fetchTrendingSuccess,
   fetchTrendingFail,
@@ -32,5 +32,5 @@ function* watcherFetchTrending() {
 }
 
 export default function* rootFetchTrendingSaga() {
-  yield all([fork(watcherFetchTrending)]);
+  yield all([spawn(watcherFetchTrending)]);
 }
