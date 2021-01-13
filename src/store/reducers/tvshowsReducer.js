@@ -1,7 +1,7 @@
 import { fromJS } from "immutable";
 
 const initialState = fromJS({
-  isloading: false,
+  isloading: true,
   error: null,
   tvshowsList: [],
   tvshowDetail: [],
@@ -13,7 +13,7 @@ const tvshowsReducer = (state = initialState, action) => {
     // Fetch TV shows
 
     case "FETCH_TVSHOWS_REQUEST": {
-      return state;
+      return state.set("isloading", false);
     }
     case "FETCH_TVSHOWS_SUCCESS": {
       return state.set("isloading", true).set("tvshowsList", action.payload);
@@ -25,7 +25,7 @@ const tvshowsReducer = (state = initialState, action) => {
     //Fetch tvshow detail
 
     case "FETCH_TVSHOWDETAIL_REQUEST": {
-      return state;
+      return state.set("isloading", false);
     }
     case "FETCH_TVSHOWDETAIL_SUCCESS": {
       return state.set("isloading", true).set("tvshowDetail", action.payload);
@@ -37,7 +37,7 @@ const tvshowsReducer = (state = initialState, action) => {
     //Fetch movie Tv show review
 
     case "FETCH_TVSHOWREVIEW_REQUEST": {
-      return state;
+      return state.set("isloading", false);
     }
     case "FETCH_TVSHOWREVIEW_SUCCESS": {
       return state.set("isloading", true).set("tvshowReview", action.payload);

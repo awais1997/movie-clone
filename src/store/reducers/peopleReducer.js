@@ -1,6 +1,6 @@
 import { fromJS } from "immutable";
 const initialState = fromJS({
-  isloading: false,
+  isloading: true,
   error: null,
   peopleList: [],
   personDetail: [],
@@ -11,7 +11,7 @@ const peopleReducer = (state = initialState, action) => {
     //Fetch People
 
     case "FETCH_PEOPLE_REQUEST": {
-      return state;
+      return state.set("isloading", false);
     }
     case "FETCH_PEOPLE_SUCCESS": {
       return state.set("isloading", true).set("peopleList", action.payload);
@@ -23,7 +23,7 @@ const peopleReducer = (state = initialState, action) => {
     //Fetch person detail
 
     case "FETCH_PERSONDETAIL_REQUEST": {
-      return state;
+      return state.set("isloading", false);
     }
     case "FETCH_PERSONDETAIL_SUCCESS": {
       return state.set("isloading", true).set("personDetail", action.payload);
