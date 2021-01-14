@@ -1,5 +1,5 @@
 import { URL_SEARCH, KEY } from "../services";
-import { put, fork, takeEvery, call, all } from "redux-saga/effects";
+import { put, spawn, call, all, takeLatest } from "redux-saga/effects";
 import { fetchSearchSuccess, fetchSearchFail } from "../actions/fetchSearch";
 import axios from "axios";
 
@@ -32,9 +32,9 @@ function* workerFetchSearch({ payload }) {
   }
 }
 function* watcherFetchSearch() {
-  yield takeEvery("FETCH_SEARCH_REQUEST", workerFetchSearch);
+  yield takeLatest("FETCH_SEARCH_REQUEST", workerFetchSearch);
 }
 
 export default function* rootFetchSearchSaga() {
-  yield all([fork(watcherFetchSearch)]);
+  yield all([spawn(watcherFetchSearch)]);
 }

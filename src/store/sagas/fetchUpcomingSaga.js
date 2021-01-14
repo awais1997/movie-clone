@@ -1,5 +1,5 @@
 import { URL_UPCOMING, KEY } from "../services";
-import { put, fork, takeEvery, call, all } from "redux-saga/effects";
+import { put, spawn, takeEvery, call, all } from "redux-saga/effects";
 import {
   fetchUpcomingSuccess,
   fetchUpcomingFail,
@@ -32,5 +32,5 @@ function* watcherFetchUpcoming() {
 }
 
 export default function* rootFetchUpcomingSaga() {
-  yield all([fork(watcherFetchUpcoming)]);
+  yield all([spawn(watcherFetchUpcoming)]);
 }

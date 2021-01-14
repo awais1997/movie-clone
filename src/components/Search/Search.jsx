@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import TextField from "@material-ui/core/TextField";
-import "../../style/style.css";
 import { Grid } from "@material-ui/core";
+import { DebounceInput } from "react-debounce-input";
 import Movies from "../Movies";
-//import { DebounceInput } from "react-debounce-input";
+//import TextField from "@material-ui/core/TextField";
+import "../../style/style.css";
 
 const Search = (props) => {
   const { isloading, searchResult, fetchSearchRequest } = props;
@@ -19,24 +19,25 @@ const Search = (props) => {
   return (
     <div className="main-container">
       <form>
-        {/* <DebounceInput
+        <DebounceInput
+          className="search-input"
           minLength={3}
           debounceTimeout={1000}
+          placeholder="Search Movie.."
           onChange={(e) => {
             getSearchValueFunc(e);
           }}
-        /> */}
+        />
 
-        <TextField
+        {/* <TextField
           className="search-input"
           label="Search.."
           onChange={(e) => {
             getSearchValueFunc(e);
           }}
-        />
+        /> */}
       </form>
       <h1>Your Search result</h1>
-      {/* {console.log("searchResult..", searchResult)} */}
       {isloading !== true ? (
         <h1>loading..</h1>
       ) : (

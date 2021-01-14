@@ -5,7 +5,7 @@ import {
   URL_MOVIE_REVIEW,
   KEY,
 } from "../services";
-import { put, fork, takeEvery, call, all } from "redux-saga/effects";
+import { put, spawn, takeEvery, call, all } from "redux-saga/effects";
 import { fetchMoviesSuccess, fetchMoviesFail } from "../actions/fetchMovies";
 import {
   fetchMovieDetailSuccess,
@@ -98,8 +98,8 @@ function* watcherFetchMovieReview() {
 
 export default function* rootFetchMoviesSaga() {
   yield all([
-    fork(watcherFetchMovies),
-    fork(watcherFetchMovieDetail),
-    fork(watcherFetchMovieReview),
+    spawn(watcherFetchMovies),
+    spawn(watcherFetchMovieDetail),
+    spawn(watcherFetchMovieReview),
   ]);
 }

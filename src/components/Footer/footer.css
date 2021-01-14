@@ -1,19 +1,19 @@
-.Footer-container {
+.footer-container {
   background-color: #032541;
   align-items: center;
   height: 250px;
   display: flex;
   justify-content: space-around;
 }
-.Footer-logo {
+.footer-logo {
   width: 15%;
 }
-.Footer-tabs {
+.footer-tabs {
   display: flex;
   flex-grow: 0.2;
   justify-content: space-around;
 }
-.Footer-links {
+.footer-links {
   color: white;
   text-decoration: none;
 }

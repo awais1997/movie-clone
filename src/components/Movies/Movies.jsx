@@ -1,4 +1,5 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import {
   Card,
   CardActionArea,
@@ -7,7 +8,6 @@ import {
   Typography,
   Grid,
 } from "@material-ui/core";
-import { useHistory } from "react-router-dom";
 import { useStyles } from "../../style/cardStyle";
 import placeholderImage from "../../assets/placeholderImage.png";
 
