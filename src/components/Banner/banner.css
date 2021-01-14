@@ -16,6 +16,7 @@
   border-radius: 20px;
   border-style: none;
   text-align: center;
+  outline: none;
 }
 .banner-form-btn {
   background-color: rgb(111, 243, 188);
@@ -28,4 +29,5 @@
   border-radius: 20px;
   border-style: none;
   cursor: pointer;
+  outline: none;
 }
